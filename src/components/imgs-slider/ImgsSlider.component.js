@@ -1,6 +1,11 @@
 import React, { useEffect, useState, useContext, useReducer } from "react";
 import "./img-slider.styles.scss";
 
+// slick slider
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import Axios from "../../axios/axios";
 import requests from "../../axios/requests";
 
@@ -14,10 +19,10 @@ import {
 } from "../../context/action.types";
 import { ProductContext } from "../../context/Context";
 
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import { Link } from "react-router-dom";
+// import OwlCarousel from "react-owl-carousel";
+// import "owl.carousel/dist/assets/owl.carousel.css";
+// import "owl.carousel/dist/assets/owl.theme.default.css";
+// import { Link } from "react-router-dom";
 
 export default function ImagesSlider() {
   const [images, setImages] = useState([]);
@@ -28,6 +33,42 @@ export default function ImagesSlider() {
   // router hooks usage
   const { id } = useParams();
   const { pathname } = useLocation();
+
+  var settings = {
+    arrows: true,
+    adaptiveHeight: true,
+
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1124,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 4,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 2,
+        },
+      },
+
+      {
+        breakpoint: 370,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
 
   function fetchSliderImages(id) {
     const request = Axios.get(`${requests.getProductSliderMain}${id}`).then(
@@ -67,8 +108,29 @@ export default function ImagesSlider() {
           COLOUR: {colorName || images[0].color_name}
         </div>
         <div className="inner-container">
-          console.log(images)
-          {images.length && console.log(images)}
+          {images.length && (
+            <Slider {...settings}>
+              {images.map((imgObj, index) => {
+                return (
+                  <div className="item" key={index}>
+                    <img
+                      onClick={(e) => {
+                        console.log(e.target.id);
+                        setSku(imgObj.sku_id);
+                        fetchSliderImages(imgObj.id);
+                        setColorName(imgObj.color_name);
+                      }}
+                      height={100}
+                      width={100}
+                      src={imgObj.product_image}
+                      alt="product-img"
+                      id={imgObj.id}
+                    />
+                  </div>
+                );
+              })}
+            </Slider>
+          )}
         </div>
       </div>
     )

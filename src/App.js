@@ -6,11 +6,7 @@ import "./mediaqueries/main.styles.scss";
 // axios
 import axios from "axios";
 
-// owl crowsel imports
-// import OwlCarousel from "react-owl-carousel";
-// import "owl.carousel/dist/assets/owl.carousel.css";
-// import "owl.carousel/dist/assets/owl.theme.default.css";
-
+// slick slider
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

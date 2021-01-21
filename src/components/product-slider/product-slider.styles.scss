@@ -6,22 +6,25 @@
     color: #202020;
     margin: 4rem 2rem 2rem 2rem;
   }
+  .slick-slider {
+    .item {
+      cursor: pointer;
+    }
 
-  .owl-nav {
-    position: absolute;
-    left: 95%;
-    top: 94%;
-    font-size: 2rem;
-    display: flex;
+    .slick-prev {
+      top: 2%;
+      left: 92%;
+      z-index: 1;
+      background-color: rgb(179, 179, 179);
+      border-radius: 50%;
+    }
 
-    .owl-prev,
-    .owl-next {
-      outline: none;
-
-      span {
-        color: #202020;
-        margin-left: 1rem;
-      }
+    .slick-next {
+      top: 2%;
+      right: 3%;
+      z-index: 1;
+      border-radius: 50%;
+      background-color: rgb(179, 179, 179);
     }
   }
 
