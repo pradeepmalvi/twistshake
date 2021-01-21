@@ -2,14 +2,27 @@ import React, { useContext, useState } from "react";
 import "./mobile-menu-sidebar.styles.scss";
 
 import { BiSearch } from "react-icons/bi";
-import { Link } from "react-router-dom";
 
 import { NavContext } from "../../context/Context";
+import { DISABLE_MOBILE_MENU } from "../../context/action.types";
+import { Link, Route, useHistory } from "react-router-dom";
 
 export default function MobileMenuSidebar() {
-  const { navState } = useContext(NavContext);
+  const { navState, navStateDispatch } = useContext(NavContext);
   const [bestSellers, setBestSellers] = useState([1, 2, 3, 4]);
 
+  const disableNav = () => {
+    navStateDispatch({
+      type: DISABLE_MOBILE_MENU,
+      payload: "",
+    });
+  };
+  const history = useHistory();
+  const logout = () => {
+    localStorage.clear();
+    history.push("/");
+    window.location.reload();
+  };
   return (
     <div
       className={`mobileMenuSidebar ${
@@ -45,53 +58,95 @@ export default function MobileMenuSidebar() {
         <div className="mobile-nav-links">
           <div className="list">
             <li className="link">
-              <Link to="/pages/baby-bottles" className="link">
+              <Link
+                to="/pages/baby-bottles"
+                className="link"
+                onClick={disableNav}
+              >
                 Baby Bottles
               </Link>
             </li>
             <li className="link">
-              <Link to="/pages/teether-and-peciefiers" className="link">
+              <Link
+                to="/pages/teether-and-peciefiers"
+                className="link"
+                onClick={disableNav}
+              >
                 Teethers & Peciefiers
               </Link>
             </li>
             <li className="link">
-              <Link to="/pages/sippy-cups" className="link">
+              <Link
+                to="/pages/sippy-cups"
+                className="link"
+                onClick={disableNav}
+              >
                 Sippy Cups
               </Link>
             </li>
             <li className="link">
-              <Link to="/pages/squeeze-bag" className="link">
+              <Link
+                to="/pages/squeeze-bag"
+                className="link"
+                onClick={disableNav}
+              >
                 Squeeze Bags
               </Link>
             </li>
 
-            <li className="link">
-              <Link to="/login" className="link login-link">
-                Login
-              </Link>
-            </li>
-            <li className="link">
-              <Link to="/create-account" className="link create-account-link">
-                Create Account
-              </Link>
-            </li>
+            {localStorage.getItem("user") ? (
+              ""
+            ) : (
+              <>
+                <li className="link">
+                  <Link
+                    to="/login"
+                    className="link login-link"
+                    onClick={disableNav}
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li className="link">
+                  <Link
+                    to="/create-account"
+                    className="link create-account-link"
+                    onClick={disableNav}
+                  >
+                    Create Account
+                  </Link>
+                </li>
+              </>
+            )}
           </div>
         </div>
         <div className="topbar-menu">
           <div className="topbar-mobile-nav-links">
             <ul className="list">
               <li className="link">
-                <Link to="/customer-service/contact" className="link">
+                <Link
+                  to="/customer-service/contact"
+                  className="link"
+                  onClick={disableNav}
+                >
                   Contact
                 </Link>
               </li>
               <li className="link">
-                <Link to="/customer-service/about-us" className="link">
+                <Link
+                  to="/customer-service/about-us"
+                  className="link"
+                  onClick={disableNav}
+                >
                   About us
                 </Link>
               </li>
               <li className="link">
-                <Link to="/customer-service/faq" className="link">
+                <Link
+                  to="/customer-service/faq"
+                  className="link"
+                  onClick={disableNav}
+                >
                   FAQ
                 </Link>
               </li>
@@ -105,6 +160,15 @@ export default function MobileMenuSidebar() {
                   Ambassador
                 </Link>
               </li>
+              {localStorage.getItem("user") ? (
+                <li className="link">
+                  <Link className="link" onClick={logout}>
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                ""
+              )}
               <li className="close-icon" onClick={() => {}}></li>
             </ul>
           </div>

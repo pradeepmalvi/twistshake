@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { CgShoppingBag } from "react-icons/cg";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
 import { VscClose } from "react-icons/vsc";
 
 export default function Navbar() {
@@ -107,6 +107,13 @@ export default function Navbar() {
           <Link to="/">TWISTSHAKE</Link>
         </h3>
       </div>
+      {localStorage.getItem("user") ? (
+        <Link to="/myaccount" className="cart">
+          <AiOutlineUser></AiOutlineUser>
+        </Link>
+      ) : (
+        ""
+      )}
       <div
         className="cart"
         onClick={() => {

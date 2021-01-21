@@ -43,6 +43,8 @@ function CheckOutPage() {
     window.scrollTo(0, 0);
     getCart();
     getCities();
+    getAddress();
+    getAccount();
   }, []);
 
   const getCart = () => {
@@ -62,6 +64,51 @@ function CheckOutPage() {
   const getCities = () => {
     Axios.get(`${requests.getCities}`, config).then((response) => {
       setCities(response.data.shipping);
+      console.log(response.data.shipping);
+    });
+  };
+
+  const getAccount = () => {
+    Axios.get(
+      `${requests.getAccount}/${localStorage.getItem("ts-userid")}`,
+      config
+    ).then((response) => {
+      if (response.data.user !== null) {
+        var userDetails = response.data.user;
+        // setid(userDetails.id);
+        // setemail(userDetails.email);
+        setname(userDetails.name);
+        setphone(userDetails.phone);
+
+        localStorage.setItem("ts-name", userDetails.name);
+      }
+    });
+  };
+
+  const getAddress = () => {
+    Axios.get(
+      `${requests.getAddress}/${localStorage.getItem("ts-userid")}`,
+      config
+    ).then((response) => {
+      if (response.data.user !== null) {
+        // setAddressDetails(response.data);
+        var address = response.data.user;
+        setaddress(address.address);
+        setaddress_type(address.address2);
+        setshipping_charge(address.city);
+        setphone(address.phone);
+        // setAddressId(address.id);
+
+        Axios.get(`${requests.getCities}`, config).then((response) => {
+          let city = response.data.shipping;
+
+          for (let i = 0; i < city.length; i++) {
+            if (address.city === city[i].shipping_state) {
+              setshipping_charge(city[i].shipping_charge);
+            }
+          }
+        });
+      }
     });
   };
 
@@ -245,6 +292,7 @@ function CheckOutPage() {
                     </div>
                     <CartProduct
                       removeProduct={removeProduct}
+                      removeCart={removeCart}
                       cartIndex={product.cart_id}
                       key={index}
                       data={product}
@@ -266,6 +314,7 @@ function CheckOutPage() {
               <div className="form">
                 <FormInput
                   id="name"
+                  value={name}
                   handleChange={handleChange}
                   placeholder="First Name"
                   type="text"
@@ -275,6 +324,7 @@ function CheckOutPage() {
 
                 <FormInput
                   id="address"
+                  value={address}
                   handleChange={handleChange}
                   placeholder="Address"
                   type="text"
@@ -283,11 +333,12 @@ function CheckOutPage() {
                 />
                 <FormInput
                   id="address_type"
+                  value={address_type}
                   handleChange={handleChange}
                   type="text"
                   className="residential-address"
                   placeholder="Appartment, Suit, (optional)"
-                  required
+                  // required
                 />
 
                 <div className="form-element-group">
@@ -299,6 +350,7 @@ function CheckOutPage() {
                   <div className="select-option">
                     <select
                       id="shipping_charge"
+                      value={shipping_charge}
                       name="city"
                       className="choose-province"
                       onChange={handleChange}
@@ -317,6 +369,7 @@ function CheckOutPage() {
 
                 <FormInput
                   id="phone"
+                  value={phone}
                   handleChange={handleChange}
                   placeholder="Phone"
                   type="number"
@@ -325,11 +378,12 @@ function CheckOutPage() {
                 />
                 <FormInput
                   id="alternate_phone"
+                  value={alternate_phone}
                   handleChange={handleChange}
                   placeholder="Alternate Phone"
                   type="number"
                   className="phone"
-                  required
+                  // required
                 />
               </div>
             </div>
@@ -339,6 +393,7 @@ function CheckOutPage() {
               <div className="input-container">
                 <FormInput
                   id="name"
+                  value={name}
                   handleChange={handleChange}
                   type="radio"
                   value="bluedart"

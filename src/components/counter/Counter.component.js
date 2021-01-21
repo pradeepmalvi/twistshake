@@ -11,7 +11,7 @@ export default function Counter({ quantity, onAddQuantity, onRemoveQuantity }) {
   }, [quantity]);
 
   const onClickMinus = () => {
-    if (value > 1) {
+    if (value > 0) {
       // setValue(value - 1);
       onRemoveQuantity(value - 1);
     }

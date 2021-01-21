@@ -21,6 +21,7 @@ export default function CartProduct({
   removeProduct,
   cartIndex,
   updateQuantity,
+  removeCart,
 }) {
   const [packageBox, setPackageBox] = useState("");
   const [productQuantity, setProductQuantity] = useState(quantity);
@@ -31,6 +32,11 @@ export default function CartProduct({
   };
   const onRemoveQuantity = (quantity) => {
     // setProductQuantity(quantity);
+    console.log(quantity);
+    if (quantity === 0) {
+      removeCart(cartIndex);
+    }
+
     updateQuantity(cartIndex, quantity);
   };
 

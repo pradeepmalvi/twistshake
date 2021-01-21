@@ -31,11 +31,16 @@ export default function Login() {
   const history = useHistory();
   const params = useParams();
 
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (userName) {
-      if (!userName.includes("@")) {
+      if (!validateEmail(userName)) {
         setUserNameErr("Invalid email");
         return false;
       }
@@ -66,6 +71,7 @@ export default function Login() {
         localStorage.setItem("ts-token", res.data.token);
         localStorage.setItem("ts-name", res.data.user.name);
         localStorage.setItem("ts-userid", res.data.user.id);
+        localStorage.setItem("ts-phone", res.data.user.phone);
 
         if (params.id) {
           history.push(`/product/single/${params.id}`);

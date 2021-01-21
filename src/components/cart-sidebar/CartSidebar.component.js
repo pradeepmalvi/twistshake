@@ -192,6 +192,7 @@ export default function ShopingCart() {
                             </div>
                             <CartProduct
                               removeProduct={removeProduct}
+                              removeCart={removeCart}
                               cartIndex={product.cart_id}
                               key={index}
                               data={product}

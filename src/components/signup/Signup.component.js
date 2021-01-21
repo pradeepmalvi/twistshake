@@ -37,7 +37,7 @@ export default function Signup() {
 
   const handleChange = (e) => {
     if (e.target.id.toLowerCase() === "name") {
-      var text = e.target.value.replace(/[^a-z0-9]/gi, "");
+      var text = e.target.value.replace(/[^a-z]/gi, "");
       console.log(text);
       setName(text);
       setNameErr("");
@@ -49,8 +49,10 @@ export default function Signup() {
     }
 
     if (e.target.id.toLowerCase() === "phone") {
-      console.log(e.target.value);
-      setPhone(e.target.value);
+      var text = e.target.value;
+      var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
+      var digits = text.replace(/\D/g, "");
+      setPhone(digits);
       setPhoneErr("");
     }
 
@@ -62,6 +64,11 @@ export default function Signup() {
       setConfirmPassword(e.target.value);
       setConfirmPasswordErr("");
     }
+  };
+
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const validate = () => {
@@ -80,7 +87,7 @@ export default function Signup() {
 
     // validating email field
     if (email) {
-      if (!email.includes("@")) {
+      if (!validateEmail(email)) {
         console.log("invalid");
         emailErr = "Invalid email";
         setEmailErr(emailErr);
@@ -196,7 +203,7 @@ export default function Signup() {
               />
               <div className="validationMsg">{emailErr}</div>
               <FormInput
-                type="number"
+                type="tel"
                 name="mobile"
                 value={phone}
                 id="phone"
