@@ -7,10 +7,20 @@
 
     .link {
       padding: 1.2rem;
-      border: 1px solid rgb(221, 220, 220);
+      border-left: 1px solid rgb(221, 220, 220);
+      border-bottom: 1px solid rgb(221, 220, 220);
       text-align: center;
       transition: 0.3s background-color;
       color: #202020;
+
+      &:nth-child(5) {
+        border-bottom: none;
+      }
+
+      &:last-child {
+        border-right: 1px solid rgb(221, 220, 220);
+        border-bottom: none;
+      }
 
       &:hover {
         background-color: #202020;

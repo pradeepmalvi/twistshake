@@ -101,7 +101,8 @@ export default function Ambassador() {
           <div className="content">
             <p className="para-title">contact information</p>
             <div className="address">
-              Twistshake of Sweden AB Örjansgränd 1 721 32 Västerås Sweden
+              Twistshake of Sweden AB Örjansgränd 1 721 32 Västerås Sweden{" "}
+              <br></br>
               service@twistshake.com
             </div>
           </div>
@@ -120,6 +121,7 @@ export default function Ambassador() {
                   id=""
                   onChange={(e) => setSubject(e.target.value)}
                 >
+                  <option value="">Select a category</option>
                   <option value="product-delivery">Product Delivery</option>
                   <option value="order-delivery">Order & Delivery</option>
                   <option value="return-claims">Return Claims</option>

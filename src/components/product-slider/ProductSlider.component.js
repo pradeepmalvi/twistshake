@@ -1,24 +1,37 @@
 import React from "react";
 import "./product-slider.styles.scss";
 import ReactHtmlParser from "react-html-parser";
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+
+// slick slider
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import SliderItem from "../slider-item/SliderItem.component";
+
+var settings = {
+  arrows: true,
+  adaptiveHeight: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1124,
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
 
 export default function ProductSlider({ data }) {
   return (
     data.length !== 0 && (
       <div className="jumbo-slider">
         <h2 className="slider-title">Smart function and modern design</h2>
-        <OwlCarousel
-          className="owl-theme-1"
-          loop
-          margin={10}
-          items={1}
-          dots={false}
-          nav={true}
-        >
+        <Slider {...settings}>
           {data.map((eachSet, index) => (
             <div className="item" key={index}>
               <SliderItem bgImage={eachSet.image}>
@@ -27,7 +40,7 @@ export default function ProductSlider({ data }) {
               </SliderItem>
             </div>
           ))}
-        </OwlCarousel>
+        </Slider>
       </div>
     )
   );

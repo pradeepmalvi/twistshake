@@ -1,3 +1,30 @@
+@media only screen and (max-width: 1000px) {
+  .product {
+    .container {
+      .mid-slider {
+        .jumbo-slider {
+          .slick-slider {
+            .slick-prev {
+              top: 2%;
+              left: 90% !important;
+              z-index: 1;
+              background-color: rgb(179, 179, 179);
+              border-radius: 50%;
+            }
+
+            .slick-next {
+              top: 2%;
+              right: 3%;
+              z-index: 1;
+              border-radius: 50%;
+              background-color: rgb(179, 179, 179);
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 460px) {
   .product {
     .container {
@@ -12,50 +39,26 @@
   }
 }
 
-@media only screen and (max-width: 460px) {
-  .product {
-    .container {
-      .top {
-        .slick-prev {
-          left: 85% !important;
-        }
-
-        .product-imgs-container {
-          margin-left: 1rem;
-
-          .images {
-            height: auto !important;
-
-            .slick-slider {
-              .slick-slide {
-                img {
-                  width: 100%;
-                  height: auto;
-                  object-fit: cover;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      .product-name {
-        .product-title {
-          font-size: 1.2rem !important;
-        }
-      }
-    }
-  }
-}
-
 @media only screen and (max-width: 560px) {
   .App {
     .product {
       .container {
         .mid-slider {
           .jumbo-slider {
-            .owl-nav {
-              left: 85%;
+            .slick-slider {
+              .item {
+                cursor: pointer;
+              }
+
+              .slick-prev {
+                top: 2%;
+                left: 82% !important;
+              }
+
+              .slick-next {
+                top: 2%;
+                right: 3%;
+              }
             }
           }
 
@@ -98,6 +101,26 @@
           left: 82% !important;
         }
       }
+
+      .mid-slider {
+        .jumbo-slider {
+          .slick-slider {
+            .item {
+              cursor: pointer;
+            }
+
+            .slick-prev {
+              top: 2%;
+              left: 88% !important;
+            }
+
+            .slick-next {
+              top: 2%;
+              right: 3%;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -125,6 +148,52 @@
               color: #fff;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .product {
+    .container {
+      .top {
+        .slick-prev {
+          left: 80% !important;
+        }
+
+        .product-imgs-container {
+          margin-left: 1rem;
+
+          .images {
+            height: auto !important;
+
+            .slick-slider {
+              .slick-slide {
+                img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .slider-item {
+        .container {
+          .content {
+            .title {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+
+      .product-name {
+        .product-title {
+          font-size: 1.2rem !important;
         }
       }
     }
@@ -161,16 +230,6 @@
             width: 100% !important;
           }
 
-          .imgslider {
-            .owl-carousel {
-              .owl-item {
-                img {
-                  width: auto;
-                }
-              }
-            }
-          }
-
           .product-details-container {
             width: 100% !important;
 
@@ -190,18 +249,6 @@
           }
 
           flex-direction: column;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .product {
-    .container {
-      .mid-slider {
-        .jumbo-slider .owl-nav {
-          left: 90%;
         }
       }
     }
@@ -251,23 +298,7 @@
 
           .product-details-container {
             width: 35%;
-
-            // .buttons {
-            //   background-color: #fff;
-            //   z-index: 9999999;
-            //   width: 100%;
-            //   position: fixed;
-            //   bottom: 0;
-            //   left: 0;
-            //   padding: 2rem;
-
-            //   .customize-btn {
-            //     width: 90%;
-            //   }
-            // }
           }
-
-          // flex-direction: column;
         }
       }
     }

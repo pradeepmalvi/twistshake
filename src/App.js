@@ -6,11 +6,7 @@ import "./mediaqueries/main.styles.scss";
 // axios
 import axios from "axios";
 
-// owl crowsel imports
-// import OwlCarousel from "react-owl-carousel";
-// import "owl.carousel/dist/assets/owl.carousel.css";
-// import "owl.carousel/dist/assets/owl.theme.default.css";
-
+// slick slider
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -102,32 +98,6 @@ function App() {
     searchSideBarMobile: "",
     menuSidebarMobile: "",
   });
-
-  // owl responsive
-  // const responsive = {
-  //   // breakpoint from 0 up
-  //   0: {
-  //     items: 1,
-  //     slideBy: 2,
-  //     nav: true,
-  //   },
-
-  //   360: {
-  //     slideBy: 1,
-  //     items: 2,
-  //     nav: true,
-  //   },
-  //   600: {
-  //     items: 2,
-  //     slideBy: 2,
-  //     nav: true,
-  //   },
-  //   1000: {
-  //     items: 4,
-  //     slideBy: 3,
-  //     nav: true,
-  //   },
-  // };
 
   var settings = {
     arrows: true,
@@ -401,7 +371,7 @@ function App() {
                               title={"SNACK ON THE GO"}
                               subtitle={"Squeeze Bags"}
                             >
-                              <Link to="/pages/squeeze-bag">
+                              <Link to="/pages/squeeze-bags">
                                 <Button>
                                   <span>Shop Now</span>
                                 </Button>
@@ -423,7 +393,7 @@ function App() {
                               title={"OUR STYLISH PECIEFIERS AND TEETHERS"}
                               subtitle={"Twistshake PECIEFIERS"}
                             >
-                              <Link to="/pages/teether-and-peciefiers">
+                              <Link to="/pages/pacifiers-&-teethers">
                                 <Button>
                                   <span>Shop Now</span>
                                 </Button>
