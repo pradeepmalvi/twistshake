@@ -34,7 +34,7 @@ export default function Card(props) {
         <div className="description">
           <div className="name">{eachProduct.product_name}</div>
           <div className="price">
-            <span className="previous">{eachProduct.total_price} AED</span>
+            <span className="previous">{eachProduct.total_price}</span>
             <span className="latest">{eachProduct.price}</span>
           </div>
         </div>

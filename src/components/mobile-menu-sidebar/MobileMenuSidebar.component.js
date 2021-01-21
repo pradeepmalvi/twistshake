@@ -81,27 +81,27 @@ export default function MobileMenuSidebar() {
           <div className="topbar-mobile-nav-links">
             <ul className="list">
               <li className="link">
-                <Link to="/Contact" className="link">
+                <Link to="/customer-service/contact" className="link">
                   Contact
                 </Link>
               </li>
               <li className="link">
-                <Link to="/Contact" className="link">
+                <Link to="/customer-service/about-us" className="link">
                   About us
                 </Link>
               </li>
               <li className="link">
-                <Link to="/Contact" className="link">
+                <Link to="/customer-service/faq" className="link">
                   FAQ
                 </Link>
               </li>
-              <li className="link">
+              {/* <li className="link">
                 <Link to="/Contact" className="link">
                   Twistshake world
                 </Link>
-              </li>
+              </li> */}
               <li className="link">
-                <Link to="/Contact" className="link">
+                <Link to="/customer-service/ambassador" className="link">
                   Ambassador
                 </Link>
               </li>

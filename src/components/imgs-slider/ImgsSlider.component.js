@@ -58,6 +58,8 @@ export default function ImagesSlider() {
       payload: id,
     });
   };
+
+  console.log(images, "images arr");
   return (
     images.length && (
       <div className="images-slider">
@@ -65,8 +67,16 @@ export default function ImagesSlider() {
           COLOUR: {colorName || images[0].color_name}
         </div>
         <div className="inner-container">
-          {images.length && (
-            <OwlCarousel
+          console.log(images)
+          {images.length && console.log(images)}
+        </div>
+      </div>
+    )
+  );
+}
+
+{
+  /* <OwlCarousel
               className="owl-theme"
               mouseDrag={false}
               margin={5}
@@ -96,10 +106,5 @@ export default function ImagesSlider() {
                   </div>
                 );
               })}
-            </OwlCarousel>
-          )}
-        </div>
-      </div>
-    )
-  );
+            </OwlCarousel> */
 }

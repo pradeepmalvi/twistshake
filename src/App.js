@@ -103,32 +103,6 @@ function App() {
     menuSidebarMobile: "",
   });
 
-  // owl responsive
-  // const responsive = {
-  //   // breakpoint from 0 up
-  //   0: {
-  //     items: 1,
-  //     slideBy: 2,
-  //     nav: true,
-  //   },
-
-  //   360: {
-  //     slideBy: 1,
-  //     items: 2,
-  //     nav: true,
-  //   },
-  //   600: {
-  //     items: 2,
-  //     slideBy: 2,
-  //     nav: true,
-  //   },
-  //   1000: {
-  //     items: 4,
-  //     slideBy: 3,
-  //     nav: true,
-  //   },
-  // };
-
   var settings = {
     arrows: true,
     adaptiveHeight: true,

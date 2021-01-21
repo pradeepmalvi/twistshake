@@ -125,19 +125,19 @@ export default function Navbar() {
         <div className="links">
           <ul className="list">
             <li className="link">
-              <Link to="/Contact">Contact</Link>
+              <Link to="/customer-service/contact">Contact</Link>
             </li>
             <li className="link">
-              <Link to="/Contact">About us</Link>
+              <Link to="/customer-service/about-us">About us</Link>
             </li>
             <li className="link">
-              <Link to="/Contact">FAQ</Link>
+              <Link to="/customer-service/faq">FAQ</Link>
             </li>
+            {/* <li className="link">
+              <Link to="/customer-service/contact">Twistshake world</Link>
+            </li> */}
             <li className="link">
-              <Link to="/Contact">Twistshake world</Link>
-            </li>
-            <li className="link">
-              <Link to="/Contact">Ambassador</Link>
+              <Link to="/customer-service/ambassador">Ambassador</Link>
             </li>
             <li className="close-icon" onClick={() => setBar("hidden")}>
               <VscClose />
