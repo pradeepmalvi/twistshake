@@ -1,0 +1,21 @@
+.text-group {
+  text-align: center;
+  .content {
+    width: 40%;
+    margin: 2rem auto;
+
+    .text-group-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1.3rem;
+      letter-spacing: 1px;
+      color: #202020;
+    }
+
+    .text-group-description {
+      font-size: 0.9rem;
+      line-height: 1.6rem;
+      font-weight: 300;
+    }
+  }
+}

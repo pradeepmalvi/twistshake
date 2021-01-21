@@ -1,0 +1,39 @@
+@import "./mixins/card-styles.mixin";
+
+@media only screen and (max-width: 400px) {
+  .category-page {
+    .category-products {
+      .row {
+        .items {
+          grid-template-columns: 100% !important;
+
+          @include cardStyle;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 972px) {
+  .App {
+    .category-page {
+      .text-content {
+        margin-top: 3rem;
+        .title {
+          white-space: nowrap;
+          font-size: 2rem !important;
+        }
+      }
+
+      .category-products {
+        .row {
+          .items {
+            grid-template-columns: 50% 50%;
+
+            @include cardStyle;
+          }
+        }
+      }
+    }
+  }
+}

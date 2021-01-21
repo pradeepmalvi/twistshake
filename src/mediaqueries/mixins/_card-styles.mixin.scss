@@ -1,0 +1,31 @@
+@mixin cardStyle {
+  .card {
+    .discount {
+      .round-badge {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        min-height: auto !important;
+        font-size: 0.7rem;
+      }
+    }
+
+    .shipping-type {
+      .rectangle-badge {
+        font-size: 0.7rem;
+        padding: 0.5rem 0.6rem;
+      }
+    }
+
+    .description {
+      .name {
+        font-weight: 300;
+        font-size: 0.9rem;
+      }
+
+      .price {
+        font-size: 0.9rem;
+        font-weight: 300;
+      }
+    }
+  }
+}

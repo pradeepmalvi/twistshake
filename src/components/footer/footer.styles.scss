@@ -1,0 +1,140 @@
+.footer {
+  background-color: #363636;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 4rem 6rem 4rem;
+
+    .left-content {
+      // width: 60%;
+
+      .heading-text {
+        text-transform: uppercase;
+        color: #9a9a9a;
+        line-height: 1rem;
+        font-size: 0.9rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+      }
+
+      .form {
+        .input {
+          border-bottom: 1px solid #fff;
+          display: flex;
+          width: 35%;
+          color: #fff;
+        }
+        .email-input {
+          background-color: transparent;
+          border: none;
+          flex-grow: 1;
+          color: #fff;
+          font-size: 0.8rem;
+
+          &::placeholder {
+            color: #fff;
+          }
+        }
+
+        .send-icon {
+          color: #9a9a9a;
+          font-size: 1.6rem;
+          stroke-width: 1px;
+        }
+
+        .label {
+          margin-top: 1rem;
+          display: flex;
+          align-items: center;
+
+          .label-input {
+            margin-right: 0.6rem;
+          }
+          .label-text {
+            font-size: 0.8rem;
+            color: #9a9a9a;
+
+            .privacy-policy-link {
+              text-decoration: underline !important;
+              color: #9a9a9a !important;
+            }
+          }
+        }
+      }
+
+      .description-text {
+        margin-top: 2rem;
+        width: 50%;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 300;
+        line-height: 1.4rem;
+      }
+    }
+
+    .right-content {
+      width: 60%;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+
+      .top-content {
+        display: flex;
+
+        .heading-title {
+          text-transform: uppercase;
+          color: #9a9a9a;
+          line-height: 1rem;
+          font-size: 0.9rem;
+          font-weight: 400;
+          margin-bottom: 1.5rem;
+        }
+
+        .left,
+        .right {
+          .links {
+            ul {
+              li {
+                margin-top: 2rem;
+
+                .link {
+                  color: #fff;
+                  font-size: 1.2rem;
+                  font-weight: 300;
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+
+        .left {
+          margin-right: 4rem;
+        }
+      }
+
+      .bottom-content {
+        padding-right: 1rem;
+        .top {
+          display: flex;
+          margin-top: 2rem;
+
+          .link {
+            margin-left: 1rem;
+            color: #9a9a9a;
+            font-weight: 300;
+            white-space: nowrap;
+          }
+        }
+
+        .bottom {
+          margin-top: 1rem;
+          color: #9a9a9a;
+          text-align: right;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

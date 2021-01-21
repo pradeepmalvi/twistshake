@@ -1,0 +1,53 @@
+.privacy-policy {
+    color: #202020;
+
+    .inner-container {
+        display: grid;
+        grid-template-columns: 25% 75%;
+
+        .left {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 2rem;
+            border-right: 1px solid rgb(236, 236, 236);
+
+            .left-title {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    display: flex;
+                    margin-right: 1rem;
+                }
+            }
+
+            .list {
+                padding-left: 2rem;
+
+                li {
+                    margin-top: 1rem;
+                    color: #202020;
+                }
+            }
+        }
+
+        .right {
+            font-weight: 300;
+            border-left: 1px solid rgb(236, 236, 236);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 2rem;
+            padding-right: 4rem;
+
+            .para-title {
+                margin-bottom: 1rem;
+                font-weight: 400;
+            }
+
+            .para {
+                margin-bottom: 2rem;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

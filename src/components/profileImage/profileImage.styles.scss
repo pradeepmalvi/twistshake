@@ -1,0 +1,43 @@
+.profile-image {
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-around;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    width: 150px;
+  }
+  .images {
+    display: flex;
+    justify-content: center;
+  }
+
+  input[type="file"] {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  img {
+    max-height: 420px;
+    max-width: 420px;
+    padding: 10px;
+    border: 1px dashed #999;
+  }
+}

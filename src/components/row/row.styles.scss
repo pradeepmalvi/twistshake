@@ -1,0 +1,170 @@
+.row {
+  .best-seller-slider {
+    width: 100vw;
+
+    .slick-prev {
+      top: 1%;
+      left: 90%;
+      z-index: 1;
+      background-color: rgb(179, 179, 179);
+      border-radius: 50%;
+    }
+
+    .slick-next {
+      top: 1%;
+      right: 3% !important;
+      z-index: 1;
+      border-radius: 50%;
+      background-color: rgb(179, 179, 179);
+    }
+  }
+
+  .title {
+    display: flex;
+    padding: 56px 36px 24px 24px;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
+
+  .items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .product-link {
+      width: 25%;
+    }
+
+    .card {
+      flex-grow: 1;
+    }
+
+    // twistshake table ware products row styles (homepage)
+
+    .twistshake-tableware,
+    .twistshake-stroller,
+    .twistshake-pecifiers,
+    .twistshake-freash-trendy {
+      &.left-started {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        padding-top: 2rem;
+        margin-bottom: 5rem;
+
+        .left-card {
+          padding-left: 8rem;
+          padding-right: 5rem;
+
+          &.dark-content {
+            // .content {
+            //   color: #202020 !important;
+            //   .btn {
+            //     background: #202020;
+            //     color: #fff;
+            //   }
+            // }
+          }
+        }
+
+        .right-cards {
+          display: flex;
+          box-sizing: border-box;
+          padding: 4rem 0rem 4rem 4rem;
+
+          .card {
+            .img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .twistshake-squeeze-bags,
+    .twistshake-baby-bottles,
+    .twistshake-kitchen-tools {
+      &.right-started {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        padding-top: 2rem;
+        margin-bottom: 5rem;
+
+        .left-cards {
+          display: flex;
+          box-sizing: border-box;
+          padding: 4rem 4rem 4rem 0rem;
+        }
+
+        .right-card {
+          padding-left: 5rem;
+          padding-right: 8rem;
+
+          &.dark-content {
+            .content {
+              color: #202020;
+              .btn {
+                background: #202020;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .twistshake-kitchen-tools {
+      &.right-started {
+        .right-card {
+          &.light-content {
+            .content {
+              color: #fff;
+              .btn {
+                background: #fff;
+                color: #202020;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .live-shopping-row-content {
+    &.right-started {
+      display: flex;
+      .left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 6rem;
+      }
+      .right {
+        width: 50%;
+        padding: 6rem;
+      }
+    }
+  }
+
+  .live-shopping-row-content {
+    &.left-started {
+      display: flex;
+      .left {
+        width: 50%;
+        padding: 6rem;
+      }
+      .right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 6rem;
+      }
+    }
+  }
+}

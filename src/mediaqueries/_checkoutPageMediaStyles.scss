@@ -1,0 +1,77 @@
+@media only screen and (max-width: 1000px) {
+    .App {
+        #checkOutContainer {
+            .float-container {
+                flex-direction: column;
+
+                .float-child-bag {
+                    width: 100%;
+                }
+
+                .float-child-payment {
+                    border-left: none;
+                    width: 100%;
+
+                    .form-input {
+                        input {
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .App {
+        #checkOutContainer {
+            .float-container {
+                .float-child-payment {
+                    border-left: none;
+                    width: 100%;
+                }
+
+                .form-element-group {
+                    flex-direction: column;
+
+                    .form-input {
+                        width: 100% !important;
+                        margin-left: 0 !important;
+
+                        input {
+                            margin-left: 0;
+                        }
+                    }
+
+                    .select-option {
+                        width: 100% !important;
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 760px) {
+    .App {
+        #checkOutContainer {
+            .about-product {
+                .price {
+                    display: flex;
+                    flex-direction: column;
+
+                    .previous {
+                        white-space: nowrap;
+                    }
+
+                    .latest {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}

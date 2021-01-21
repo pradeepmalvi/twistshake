@@ -1,0 +1,58 @@
+.custom-product-card {
+  margin-bottom: 1rem;
+  position: relative;
+
+  .product-img {
+    background-position: 50% 50%;
+    background-size: contain;
+    background-color: transparent;
+    height: 150px;
+    width: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+
+    &.disabled-img {
+      opacity: 0.3;
+    }
+  }
+
+  .product-name {
+    text-align: center;
+    font-size: 0.7rem;
+  }
+
+  .edit-icon {
+    background: #202020;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .check_customization_icon {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: black;
+    right: 20px;
+    margin: 10px;
+    z-index: 11;
+    .icon {
+      color: #fff;
+      margin-left: 7px;
+      margin-top: 7px;
+    }
+  }
+  .check-activation-status {
+    border-radius: 50%;
+    overflow: hidden;
+    &.active {
+      background-color: #fafafa;
+    }
+  }
+}

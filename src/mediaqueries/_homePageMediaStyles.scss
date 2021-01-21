@@ -1,0 +1,409 @@
+@import "./mixins/card-styles.mixin";
+@import "./mixins/category-styles.mixin";
+
+@media only screen and (max-width: 450px) {
+  .App {
+    .best-seller-row {
+      .item {
+        @include cardStyle;
+      }
+    }
+
+    .best-seller-slider {
+      width: 100vw;
+
+      .slick-prev {
+        top: 1%;
+        left: 80% !important;
+      }
+
+      .slick-next {
+        top: 1%;
+        right: 3% !important;
+      }
+
+      .item {
+        .card {
+          .info-top {
+            .discount {
+              font-size: 10px;
+              min-height: auto;
+              width: 18px;
+              height: 18px;
+
+              .round-badge {
+                font-size: 0.8rem;
+                width: 35px;
+                height: 35px;
+                min-height: auto;
+              }
+            }
+
+            .shipping-type {
+              .rectangle-badge {
+                font-size: 0.7rem;
+              }
+            }
+          }
+
+          .description {
+            .name {
+              white-space: nowrap;
+              font-size: 0.9rem;
+            }
+
+            .price {
+              white-space: nowrap;
+              font-size: 0.92rem;
+            }
+          }
+        }
+      }
+    }
+
+    .twistshake-tableware {
+      margin-bottom: 2rem !important;
+      flex-direction: column;
+
+      .left-card {
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .right-cards {
+        flex-direction: column;
+        padding: 1.5rem !important;
+        @include cardStyle;
+
+        .product-link {
+          width: 100%;
+        }
+      }
+    }
+
+    .twistshake-squeeze-bags {
+      margin-bottom: 2rem !important;
+      flex-direction: column-reverse;
+
+      .right-card {
+        padding: 1.5rem !important;
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .left-cards {
+        flex-direction: column;
+        padding: 1.5rem !important;
+        @include cardStyle;
+
+        .product-link {
+          width: 100%;
+        }
+      }
+    }
+
+    .twistshake-pecifiers {
+      margin-bottom: 2rem !important;
+      flex-direction: column;
+
+      .left-card {
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .right-cards {
+        flex-direction: column;
+        padding: 1.5rem !important;
+        @include cardStyle;
+
+        .product-link {
+          width: 100%;
+        }
+      }
+    }
+
+    .twistshake-baby-bottles {
+      margin-bottom: 2rem !important;
+      flex-direction: column-reverse;
+
+      .right-card {
+        padding: 1.5rem !important;
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .left-cards {
+        flex-direction: column;
+        padding: 1.5rem !important;
+        @include cardStyle;
+
+        .product-link {
+          width: 100%;
+        }
+      }
+    }
+
+    .footer {
+      .content {
+        .left-content {
+          margin-right: 0rem;
+
+          .form {
+            .input {
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-icons {
+      flex-direction: column;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .App {
+    .best-seller-slider {
+      width: 100vw;
+
+      .slick-prev {
+        left: 85% !important;
+      }
+
+      .slick-next {
+        top: 1%;
+        right: 3% !important;
+      }
+    }
+
+    .live-stream-shopping {
+      height: 50vh;
+    }
+
+    .footer {
+      .content {
+        .right-content {
+          flex-direction: column !important;
+          align-items: flex-start;
+          width: 100%;
+
+          .accordian-container {
+            width: 100%;
+            .each-accordian-item {
+              margin-bottom: 1rem;
+
+              .heading-title {
+                font-size: 1.2rem;
+                color: #fff;
+                display: flex;
+                justify-content: space-between;
+              }
+
+              .links {
+                .link {
+                  color: #fff;
+                  font-size: 0.8rem;
+                  margin-top: 1rem;
+                  margin-bottom: 1rem;
+                  display: inline-block;
+                }
+              }
+            }
+          }
+
+          .bottom-content {
+            .extra-links {
+              margin-left: 0 !important;
+
+              .link {
+                margin-left: 0 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .App {
+    .row {
+      .title {
+        padding-left: 1.2rem;
+        h2 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .best-seller-row {
+      .item {
+        @include cardStyle;
+      }
+    }
+
+    .twistshake-tableware {
+      margin-bottom: 2rem !important;
+      flex-direction: column;
+
+      .left-card {
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .right-cards {
+        padding: 1.5rem !important;
+        @include cardStyle;
+      }
+    }
+
+    .twistshake-squeeze-bags {
+      margin-bottom: 2rem !important;
+      flex-direction: column-reverse;
+
+      .right-card {
+        padding: 1.5rem !important;
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .left-cards {
+        padding: 1.5rem !important;
+        @include cardStyle;
+      }
+    }
+
+    .twistshake-pecifiers {
+      margin-bottom: 2rem !important;
+      flex-direction: column;
+
+      .left-card {
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .right-cards {
+        padding: 1.5rem !important;
+        @include cardStyle;
+      }
+    }
+
+    .twistshake-baby-bottles {
+      margin-bottom: 2rem !important;
+      flex-direction: column-reverse;
+
+      .right-card {
+        padding: 1.5rem !important;
+        width: 100%;
+
+        .category-header {
+          @include categoryHeader;
+        }
+      }
+
+      .left-cards {
+        padding: 1.5rem !important;
+        @include cardStyle;
+      }
+    }
+    .footer {
+      .content {
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 6rem 1.5rem;
+
+        .right-content {
+          margin-top: 3rem;
+          display: flex;
+          flex-direction: row;
+
+          .bottom-content {
+            align-self: flex-start;
+
+            .extra-links {
+              margin-left: 2rem;
+              .top {
+                flex-direction: column;
+                margin-top: 0;
+              }
+
+              .link {
+                margin-bottom: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    .twistshake-tableware {
+      .left-card {
+        padding: 1.5rem !important;
+      }
+    }
+
+    .twistshake-squeeze-bags {
+      .right-card {
+        padding: 1.5rem !important;
+      }
+    }
+
+    .twistshake-pecifiers {
+      .left-card {
+        padding: 1.5rem !important;
+      }
+    }
+
+    .twistshake-baby-bottles {
+      .right-card {
+        padding: 1.5rem !important;
+      }
+    }
+
+    .footer {
+      .left-content {
+        margin-right: 1.5rem;
+
+        .form {
+          .input {
+            width: 70% !important;
+            input[type="email"] {
+              width: 70%;
+            }
+          }
+        }
+
+        .description-text {
+          width: 80% !important;
+        }
+      }
+    }
+  }
+}

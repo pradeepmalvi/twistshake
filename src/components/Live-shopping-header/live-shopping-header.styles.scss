@@ -1,0 +1,75 @@
+.live-shopping-header {
+  height: 110vh;
+  background-color: #d8cfc3;
+  position: relative;
+
+  .container {
+    height: 100%;
+    padding: 7.5rem 16rem;
+
+    .header-bg {
+      z-index: -10;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    .side-content {
+      position: absolute;
+      bottom: 6rem;
+      left: 5rem;
+
+      .side-content-heading {
+        font-size: 3.8rem;
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: 2rem;
+      }
+      .btn {
+        padding: 1rem 1.9rem;
+        background-color: #d0815f;
+        color: #fff;
+      }
+    }
+
+    .spinner-btn {
+      position: absolute;
+      height: 232px;
+      width: 232px;
+      cursor: pointer;
+      top: 64px;
+      right: 120px;
+
+      .inner-container {
+        position: relative;
+
+        .spinner-outer {
+          animation-name: outerSpin;
+          animation-duration: 8s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        .arrowBtn {
+          position: absolute;
+          left: 52%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes outerSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

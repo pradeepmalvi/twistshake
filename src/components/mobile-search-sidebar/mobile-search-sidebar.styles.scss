@@ -1,0 +1,69 @@
+.mobile-search-sidebar {
+  padding: 1.2rem;
+  background-color: #fff;
+  position: fixed;
+  flex-direction: column;
+  transform: translateX(-100%);
+  display: none;
+  top: 50px;
+  left: 0px;
+  padding-bottom: 2rem;
+  z-index: 13000;
+  height: 100vh;
+  width: 100%;
+  transition: 0.3s transform;
+  overflow-y: scroll;
+
+  &.active {
+    background: #ffffff;
+    transform: translateX(0);
+    display: block;
+  }
+
+  .search-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(221, 220, 220);
+    margin-bottom: 1rem;
+
+    input {
+      width: 100%;
+      flex-grow: 1;
+      padding: 0.3rem;
+      border: 0;
+      border: none;
+
+      &::placeholder {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .popular-keywords {
+    .keyword-list {
+      li {
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .products {
+    margin-top: 1rem;
+    .area-title {
+      font-size: 0.8rem;
+    }
+    .item {
+      margin: 10px 1%;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      padding-right: 10px;
+      padding-left: 10px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+  }
+}

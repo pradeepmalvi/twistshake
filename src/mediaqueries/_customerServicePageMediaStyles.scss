@@ -1,0 +1,158 @@
+@media only screen and (max-width: 1000px) {
+    .customerServicesPage {
+        .customer-service-hero {
+            .inner-container {
+                .left {
+                    display: none;
+                }
+
+                .right {
+                    width: 100vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .hero-text {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .customerNavbar {
+            .nav-links {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .aboutUs,
+        .ambassador,
+        .contact,
+        .faq,
+        .privacy-policy,
+        .termsAndConditions {
+            .inner-container {
+                display: flex;
+                flex-direction: column;
+
+                .right {
+                    padding-right: 2rem;
+
+                    .para-title {
+                        font-size: 1.8rem;
+                    }
+
+                    .para {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .customerServicesPage {
+        .customer-service-hero {
+            .inner-container {
+                .left {
+                    display: none;
+                }
+
+                .right {
+                    padding: 2rem;
+                    width: 100vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .hero-text {
+                        display: block;
+                    }
+                }
+
+            }
+
+
+        }
+
+        .customerNavbar {
+            .nav-links {
+                display: flex;
+
+                .link {
+                    border: none;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 750px) {
+    .customerServicesPage {
+        .customer-service-hero {
+            .inner-container {
+                .left {
+                    display: none;
+                }
+
+                .right {
+                    .hero-text {
+                        display: block;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+
+        .customerNavbar {
+            .nav-links {
+                display: flex;
+                overflow-x: scroll;
+
+                .link {
+                    border: none;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .contact,
+        .faq {
+            .inner-container {
+                .form-1 {
+                    form {
+                        .element-container {
+                            display: flex !important;
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .customerServicesPage {
+
+        .aboutUs,
+        .ambassador {
+            .inner-container {
+                display: flex;
+                flex-direction: column;
+
+                .right {
+                    padding-right: 2rem;
+
+                    .para-title {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

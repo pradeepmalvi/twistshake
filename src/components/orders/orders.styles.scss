@@ -1,0 +1,38 @@
+.orders {
+  width: 100%;
+  .section-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #202020;
+  }
+
+  .data-table {
+    table {
+      width: 100%;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.7rem 0.7rem;
+    }
+
+    table,
+    tr,
+    td {
+      border-collapse: collapse;
+      border: 1px solid #cccccc;
+      margin: 0;
+
+      .btn {
+        background-color: #202020;
+        color: #fff;
+        padding: 0.4rem 0.8rem;
+        margin: 0.5rem 1rem;
+      }
+    }
+
+    td {
+      padding-left: 0.7rem;
+    }
+  }
+}

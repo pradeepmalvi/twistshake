@@ -1,0 +1,133 @@
+.cart-sidebar {
+  border-top: 1px solid rgb(236, 236, 236);
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  width: calc(33vw + 7px);
+  min-width: 500px;
+  position: fixed;
+  z-index: 99999991;
+  top: 0px;
+  right: 0px;
+  transition: transform 200ms ease-in;
+  transform: translateX(100%);
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  // padding: 1.2rem 1.5rem;
+
+  .seprator {
+    border-bottom: 1px solid #ececec;
+    margin: 1rem 0rem;
+  }
+
+  .inner-wrapper {
+    .header-top {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .title {
+        h3 {
+          color: hsl(0, 0%, 13%);
+          font-size: 1.1rem;
+          font-weight: 400;
+          margin-bottom: 1.2rem;
+          line-height: 1;
+          letter-spacing: 1px;
+        }
+      }
+
+      .close-btn {
+        font-size: 1.8rem;
+        color: #202020;
+        display: flex;
+        cursor: pointer;
+      }
+    }
+
+    .mid-area {
+      overflow-y: scroll;
+      height: 55vh;
+      padding: 1.2rem 1.5rem;
+
+      .grouped {
+        justify-content: space-between;
+        flex-direction: column;
+        display: flex;
+        height: 400px;
+        flex: 1 1 0%;
+
+        .sprator {
+          border-bottom: 1px solid #ececec;
+          margin: 1.5rem 0rem;
+        }
+
+        .popular-products {
+          .title {
+            h3 {
+              color: #202020;
+              font-size: 1.1rem;
+              font-weight: 400;
+              margin-bottom: 1.2rem;
+              line-height: 1;
+              letter-spacing: 1px;
+            }
+          }
+
+          .products {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    .bottom-area {
+      padding: 0rem 1.5rem 1.5rem 1.5rem;
+
+      .inner-container {
+        .common {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          font-size: 1rem;
+          font-weight: 300;
+          letter-spacing: 0px;
+          line-height: 1;
+        }
+
+        .total {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          border-top: 1px solid #202020;
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.2rem;
+        }
+      }
+
+      .btn {
+        width: 100%;
+        background-color: #202020;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        &:hover {
+          background-color: #fff;
+          color: #202020;
+        }
+      }
+    }
+  }
+  .empty-message {
+    text-align: center;
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}

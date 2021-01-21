@@ -1,0 +1,119 @@
+.package-customization {
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: rgb(255, 255, 255);
+  right: 0px;
+  top: 0px;
+  position: fixed;
+  z-index: 11000;
+  width: 50%;
+  border-top: 1px solid rgb(236, 236, 236);
+  min-width: 400px;
+  transition: transform 200ms ease-in;
+  transform: translateX(100%);
+  // cursor: pointer;
+  // display: none;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  .inner-container {
+    position: relative;
+    height: 100%;
+
+    .top-area {
+      padding: 2rem 2rem 0rem;
+      height: 90vh;
+      overflow-y: scroll;
+
+      .heading-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        display: flex;
+        margin-bottom: 1.5rem;
+
+        .text {
+          font-size: 1rem;
+          line-height: 1.2rem;
+          font-weight: 500;
+          color: #202020;
+        }
+
+        .number-of-products {
+          font-size: 0.8rem;
+          line-height: 0.8rem;
+          margin: 0;
+          font-weight: 400;
+        }
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        .custom-product-card {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .customization-bottom {
+      padding: 2rem 2rem 0rem;
+      position: absolute;
+      bottom: 1.5rem;
+      display: flex;
+      width: 100%;
+      border-top: 1px solid #ececec;
+      background-color: #ffffff;
+      z-index: inherit;
+
+      .cancel-btn {
+        margin-right: 0.4rem;
+        flex-grow: 1;
+
+        .btn {
+          flex-grow: 1;
+          background-color: #fff;
+          color: #202020;
+          border: 1px solid #202020;
+          width: 100%;
+        }
+
+        .disabled_btn {
+          width: 100%;
+          padding: 1.1rem 2.1rem;
+          color: rgb(154, 154, 154);
+          background-color: rgb(236, 236, 236);
+          border: none;
+          border-radius: 3px;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+      }
+
+      .add-to-basket-btn {
+        flex-grow: 1;
+        margin-left: 0.4rem;
+
+        .btn {
+          width: 100%;
+          flex-grow: 1;
+          background-color: #202020;
+          color: #fff;
+        }
+
+        .disabled_btn {
+          width: 100%;
+          padding: 1.1rem 2.1rem;
+          color: rgb(154, 154, 154);
+          background-color: rgb(236, 236, 236);
+          border: none;
+          border-radius: 3px;
+          font-size: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

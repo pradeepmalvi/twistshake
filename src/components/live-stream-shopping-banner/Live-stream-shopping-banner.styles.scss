@@ -1,0 +1,28 @@
+.live-stream-shopping {
+  margin-top: 3.1rem;
+  height: 100vh;
+  background-image: url(https://media.twistshake.com/2020/11/02115026/denice-live-1.png?q=70&fit=clip&w=2000&auto=format);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    text-align: center;
+
+    .title {
+      margin-top: 2rem;
+      font-size: 3.6rem;
+      line-height: 5rem;
+      margin-bottom: 0px;
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .btn {
+      margin-top: 1.5rem !important;
+    }
+  }
+}

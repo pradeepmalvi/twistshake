@@ -1,0 +1,21 @@
+.counter {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  border: 1px solid #202020;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  .value {
+    padding: 0rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .common {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

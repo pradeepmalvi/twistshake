@@ -1,0 +1,94 @@
+.twistshake-world {
+    margin-top: 6.5rem;
+
+    .top-area {
+        padding: 0rem 1.5rem 1.5rem 1.5rem;
+        width: 40%;
+        color: #202022;
+        padding-bottom: 3rem;
+
+        .title {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .description {
+            line-height: 1.5rem;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+    }
+
+    .bottom {
+        border-top: 1px solid #e4e4e4;
+
+        .top {
+            padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #202022;
+
+            .left {
+                font-size: 1.2rem;
+
+                .title {
+                    font-weight: 400;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .right {
+                display: flex;
+                align-items: center;
+                font-size: 2rem;
+                font-weight: 400;
+
+                .text {
+                    font-size: 1rem;
+                    margin-right: 0.3rem;
+                    letter-spacing: 1px;
+                    font-weight: 300;
+                }
+
+                .icon {
+                    display: flex;
+                    font-size: 2.2rem;
+                }
+            }
+        }
+
+        .insta-id {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .gallery {
+            background-color: #f5efef;
+
+            .insta-id {
+                letter-spacing: 1px;
+                text-align: center;
+                padding-top: 2rem;
+                padding-bottom: 7rem;
+                text-transform: uppercase
+            }
+
+            .insta-images {
+                display: flex;
+                flex-wrap: wrap;
+
+
+                .image {
+                    width: 25%;
+                    height: 320px;
+                    background-position: 50% 50%;
+                    background-size: cover;
+                    background-color: transparent;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+    }
+}

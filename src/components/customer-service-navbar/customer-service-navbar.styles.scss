@@ -1,0 +1,26 @@
+.customerNavbar {
+  border: 1px solid rgb(221, 220, 220);
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    .link {
+      padding: 1.2rem;
+      border: 1px solid rgb(221, 220, 220);
+      text-align: center;
+      transition: 0.3s background-color;
+      color: #202020;
+
+      &:hover {
+        background-color: #202020;
+        color: #fff;
+      }
+
+      &.active {
+        background: #202020;
+        color: #fff;
+      }
+    }
+  }
+}

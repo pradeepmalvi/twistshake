@@ -1,0 +1,120 @@
+.mobileMenuSidebar {
+  padding: 1.2rem;
+  background-color: #fff;
+  position: fixed;
+  flex-direction: column;
+  transform: translateX(-150%);
+  display: none;
+  padding-bottom: 2rem;
+  top: 50px;
+  left: 0px;
+  z-index: 13000;
+  height: 100vh;
+  width: 100%;
+  transition: 0.3s transform;
+  overflow-y: scroll;
+
+  &.active {
+    background: #ffffff;
+    transform: translateX(0);
+    display: block;
+  }
+
+  .link {
+    color: #202020;
+  }
+
+  .search-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgb(221, 220, 220);
+    margin-bottom: 1rem;
+
+    input {
+      width: 100%;
+      flex-grow: 1;
+      padding: 0.3rem;
+      border: 0;
+      border: none;
+
+      &::placeholder {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .best-selling-products {
+    width: 100%;
+
+    .area-title {
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    .products-container {
+      overflow-x: scroll;
+      display: flex;
+
+      .link {
+        color: #202020;
+
+        .each-best-selling {
+          padding: 1rem 1rem 1rem 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .img-container {
+            height: 80px;
+            width: 80px;
+            border-radius: 100%;
+            background-color: rgb(250, 250, 250);
+            overflow: hidden;
+
+            .img {
+              background-position: 50% 50%;
+              background-size: cover;
+              overflow: hidden;
+              background-color: transparent;
+              height: 100%;
+              width: 100%;
+              background-image: url(https://media.twistshake.com/2020/10/06120455/Nappflaska.jpg?q=70&fit=clip&w=160&auto=format);
+              background-repeat: no-repeat;
+            }
+          }
+
+          .title-container {
+            margin-top: 0.7rem;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #202020;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-nav-links,
+  .topbar-mobile-nav-links {
+
+    .list {
+
+      .link,
+      .login-link,
+      .create-account-link {
+        font-size: 1.2rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .topbar-mobile-nav-links {
+    .list {
+      .link {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

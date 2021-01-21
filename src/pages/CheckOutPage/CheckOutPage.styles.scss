@@ -1,0 +1,188 @@
+#checkOutContainer {
+  min-height: 100vh;
+  height: auto;
+
+  .float-container {
+    border-top: 1px solid rgb(211, 211, 211);
+    margin-top: 65px;
+    padding: 0px 10px;
+    display: flex;
+
+    .float-child-bag {
+      width: 50%;
+      padding: 20px;
+
+      .cart-heading {
+        margin-bottom: 10px;
+        color: #202020;
+      }
+    }
+
+    .float-child-payment {
+      width: 50%;
+      padding: 20px;
+      border-left: 1px solid rgb(211, 211, 211);
+
+      .title-top {
+        font-weight: 600;
+        margin-bottom: 2rem;
+        color: #202020;
+      }
+
+      .product-details {
+        .list {
+          // border: 1px solid #cecece;
+          box-shadow: -1px 4px 50px #d4d4d4;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          .list-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            .key {
+              font-size: 1rem;
+              font-weight: 300;
+              letter-spacing: 1px;
+            }
+
+            .value {
+              color: #4f4f4f;
+              font-weight: 300;
+              font-size: 0.9rem;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      .delivery-options {
+        margin-top: 2rem;
+
+        .delivery-title {
+          color: #202020;
+          font-weight: 600;
+          letter-spacing: 1px;
+          font-size: 0.9rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .options {
+          box-shadow: -1px 4px 50px #d4d4d4;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          .input-container {
+            display: flex;
+            align-items: center;
+            .form-input {
+              width: 2rem;
+              input {
+                margin-bottom: 0.5rem;
+                margin-top: 0.5rem;
+              }
+            }
+
+            label {
+              font-size: 0.9rem;
+              letter-spacing: 1px;
+              font-weight: 300;
+              display: flex;
+              align-items: center;
+              span {
+                font-size: 2rem;
+                display: flex;
+                margin-right: 0.4rem;
+                color: #202020;
+              }
+            }
+          }
+        }
+      }
+
+      .payment-options {
+        margin-top: 2rem;
+
+        .payment-options-title {
+          color: #202020;
+          font-weight: 600;
+          letter-spacing: 1px;
+          font-size: 0.9rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .input-container {
+          box-shadow: -1px 4px 50px #d4d4d4;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          display: flex;
+          align-items: center;
+
+          input {
+            width: 2rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+          }
+
+          label {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            span {
+              font-size: 1rem;
+              display: flex;
+              margin-right: 0.4rem;
+              color: #202020;
+            }
+          }
+        }
+      }
+
+      .address {
+        margin-top: 2rem;
+        .address-title {
+          color: #202020;
+          font-weight: 600;
+          letter-spacing: 1px;
+          font-size: 0.9rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .form {
+          box-shadow: -1px 4px 50px #d4d4d4;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          .form-element-group {
+            display: flex;
+            .form-input {
+              width: 50%;
+
+              &:first-child {
+                margin-right: 1rem;
+              }
+
+              &:last-child {
+                margin-left: 1rem;
+              }
+            }
+
+            .select-option {
+              width: 50%;
+
+              &:first-child {
+                margin-right: 1rem;
+              }
+
+              &:last-child {
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

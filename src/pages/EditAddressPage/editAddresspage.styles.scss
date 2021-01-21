@@ -1,0 +1,53 @@
+.edit-address {
+  width: 70%;
+
+  .form-element-group {
+    margin-bottom: 1rem;
+    width: 100%;
+
+    label {
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      &::placeholder {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .inline-elements-container {
+    display: flex;
+
+    .form-element-group {
+      margin-right: 0.7rem;
+    }
+
+    .form-element-group:last-child {
+      margin-left: 0.7rem;
+      margin-right: 0;
+    }
+
+    &.drop-downs {
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 1rem;
+      select {
+        padding: 1rem;
+      }
+    }
+  }
+
+  input[type="submit"] {
+    background-color: #202020;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+}

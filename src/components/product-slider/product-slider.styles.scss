@@ -1,0 +1,38 @@
+.jumbo-slider {
+  .slider-title {
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    font-weight: 400;
+    color: #202020;
+    margin: 4rem 2rem 2rem 2rem;
+  }
+
+  .owl-nav {
+    position: absolute;
+    left: 95%;
+    top: 94%;
+    font-size: 2rem;
+    display: flex;
+
+    .owl-prev,
+    .owl-next {
+      outline: none;
+
+      span {
+        color: #202020;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .content {
+    .description {
+      p {
+        span {
+          display: inline-block;
+          background-color: none !important;
+        }
+      }
+    }
+  }
+}

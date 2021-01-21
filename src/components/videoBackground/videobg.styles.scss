@@ -1,0 +1,31 @@
+/* video bg styles */
+.videobg-container {
+  // position: fixed;
+  color: #f1f1f1;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0;
+
+  /* Style the video: 100% width and height to cover the entire window */
+  .bgVideo {
+    width: 100vw;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    left: 4rem;
+    bottom: 5rem;
+    z-index: 100;
+
+    .heading {
+      margin-bottom: 2.8rem;
+      font-size: 3.5rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+  }
+}

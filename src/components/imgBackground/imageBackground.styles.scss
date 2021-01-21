@@ -1,0 +1,32 @@
+.image-background {
+  height: 80vh;
+
+  .bg-img {
+    position: relative;
+    background-position: 50% 50%;
+    background-size: cover;
+    align-items: flex-end;
+    display: flex;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+
+    .text-content {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      background-color: #20202063;
+      transform: translateX(-50%);
+
+      .title {
+        font-size: 3rem;
+        color: #fff;
+        font-weight: 400;
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.orders {
+  width: 100%;
+  .section-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #202020;
+  }
+
+  .data-table {
+    table {
+      width: 100%;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.7rem 0.7rem;
+    }
+
+    table,
+    tr,
+    td {
+      border-collapse: collapse;
+      border: 1px solid #cccccc;
+      margin: 0;
+
+      .btn {
+        background-color: #202020;
+        color: #fff;
+        padding: 0.4rem 0.8rem;
+        margin: 0.5rem 1rem;
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    td {
+      padding-left: 0.7rem;
+    }
+
+    span {
+      padding: 5px 10px;
+      background-color: #e86464;
+      color: white;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-left: 14px;
+      text-transform: uppercase;
+    }
+  }
+}

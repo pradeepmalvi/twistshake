@@ -1,0 +1,39 @@
+.slider-item {
+  .container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: #eeeeee;
+
+    .bg-container {
+      width: 60%;
+      height: 100%;
+      background-size: cover;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 72%;
+      transform: translate(-50%, -50%);
+
+      .title {
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        color: #220022;
+        white-space: nowrap;
+      }
+
+      .description {
+        color: #220022;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        line-height: 1.5rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

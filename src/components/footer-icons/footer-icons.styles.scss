@@ -1,0 +1,19 @@
+.footer-icons {
+  display: flex;
+  justify-content: space-between;
+  background: #202022;
+  padding: 0.5rem 1rem;
+
+  .link {
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0.8rem;
+  }
+
+  .right {
+    .link {
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.customer-service-hero {
+  .inner-container {
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 40% 80%;
+
+    .left {
+      background-color: #7a7f59;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 4rem;
+      color: #fff;
+
+      .primary-text {
+        font-weight: 500;
+      }
+
+      .welcome-text {
+        font-size: 2rem;
+      }
+
+      .email {
+        font-size: 1rem;
+        padding-bottom: 1.5rem;
+      }
+    }
+
+    .right {
+      background-image: url("https://media.twistshake.com/2020/06/03130801/TS2.0-10.jpg?q=70&fit=clip&w=1340&auto=format");
+      background-position: 50% 50%;
+      background-size: cover;
+      align-items: flex-end;
+      display: flex;
+      width: 100%;
+      background-repeat: no-repeat;
+
+      .hero-text {
+        color: #fff;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+        display: none
+      }
+    }
+  }
+}
