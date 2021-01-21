@@ -61,7 +61,9 @@ export default function OrdersPage() {
               ? orders.map((order) => (
                   <tr>
                     <td>
-                      <Link to="/id">#{order.id}</Link>
+                      <Link to={`/myaccount/order-details/${order.id}`}>
+                        #{order.id}
+                      </Link>
                     </td>
                     <td>{order.order_date}</td>
                     <td>

@@ -371,7 +371,7 @@ function App() {
                               title={"SNACK ON THE GO"}
                               subtitle={"Squeeze Bags"}
                             >
-                              <Link to="/pages/squeeze-bag">
+                              <Link to="/pages/squeeze-bags">
                                 <Button>
                                   <span>Shop Now</span>
                                 </Button>
@@ -393,7 +393,7 @@ function App() {
                               title={"OUR STYLISH PECIEFIERS AND TEETHERS"}
                               subtitle={"Twistshake PECIEFIERS"}
                             >
-                              <Link to="/pages/teether-and-peciefiers">
+                              <Link to="/pages/pacifiers-&-teethers">
                                 <Button>
                                   <span>Shop Now</span>
                                 </Button>
