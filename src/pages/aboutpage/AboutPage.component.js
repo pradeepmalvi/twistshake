@@ -12,11 +12,10 @@ export default function AboutPage() {
   const [data, setData] = useState([]);
   useEffect(() => {
     Axios.get(requests.pages).then((res) => {
+      console.log(res.data.pages);
       setData(res.data.pages["about-us"]);
     });
   }, []);
-
-  console.log(data);
 
   return (
     <div className="aboutUs">
@@ -26,13 +25,13 @@ export default function AboutPage() {
             <span className="icon">
               <AiOutlineArrowRight />
             </span>
-            <h2>Ambassador</h2>
+            <h2>{data.length > 0 ? data[0].page_title : " "}</h2>
           </div>
           <ul className="list">
-            <li>Why Twistshake</li>
-            <li>Innovation and function</li>
-            <li>Quality and material</li>
-            <li>Our history</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">

@@ -71,6 +71,7 @@
       .cancel-btn {
         margin-right: 0.4rem;
         flex-grow: 1;
+        cursor: pointer;
 
         .btn {
           flex-grow: 1;
@@ -78,6 +79,7 @@
           color: #202020;
           border: 1px solid #202020;
           width: 100%;
+          cursor: pointer;
         }
 
         .disabled_btn {
@@ -101,6 +103,7 @@
           flex-grow: 1;
           background-color: #202020;
           color: #fff;
+          cursor: pointer;
         }
 
         .disabled_btn {
@@ -111,7 +114,6 @@
           border: none;
           border-radius: 3px;
           font-size: 1rem;
-          cursor: pointer;
         }
       }
     }

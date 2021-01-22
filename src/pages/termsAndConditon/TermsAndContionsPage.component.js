@@ -14,7 +14,7 @@ export default function TermsAndConditons() {
   useEffect(() => {
     Axios.get(requests.pages).then((res) => {
       setData(res.data.pages["terms-and-conditions"]);
-      // console.log(res.data.pages);
+      console.log(res.data.pages);
     });
   }, []);
 
@@ -26,22 +26,13 @@ export default function TermsAndConditons() {
             <span className="icon">
               <AiOutlineArrowRight />
             </span>
-            <h2>Terms and Conditions</h2>
+            <h2>{data.length > 0 ? data[0].page_title : " "}</h2>
           </div>
           <ul className="list">
-            <li>Terms and Conditons</li>
-            <li>Confirmations</li>
-            <li>Payment </li>
-            <li>Payment By Card</li>
-            <li>Payment By Invoice</li>
-            <li>Rates</li>
-            <li>Delivery</li>
-            <li>Uncollected Packages</li>
-            <li>Returns</li>
-            <li>Claims</li>
-            <li>Cookies</li>
-            <li>Force majeure</li>
-            <li>Amendments</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">

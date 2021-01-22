@@ -99,7 +99,7 @@ export default function CartProduct({
                   data.cart_product !== undefined &&
                   data.cart_product.length > 0
                   ? data.cart_product.map((packageContent, index) => (
-                      <h5>{packageContent.package_content}</h5>
+                      <h5 key={index}>{packageContent.package_content}</h5>
                     ))
                   : ""
                 : ""}

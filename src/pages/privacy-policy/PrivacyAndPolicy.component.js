@@ -24,15 +24,13 @@ export default function PrivacyAndPolicy() {
             <span className="icon">
               <AiOutlineArrowRight />
             </span>
-            <h2>Ambassador</h2>
+            <h2>{data.length > 0 ? data[0].page_title : " "}</h2>
           </div>
           <ul className="list">
-            <li>Personal information</li>
-            <li>What are cookies?</li>
-            <li>Why do we use cookies? </li>
-            <li>What information do we collect?</li>
-            <li>Disclosures of your information</li>
-            <li>Updates</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">

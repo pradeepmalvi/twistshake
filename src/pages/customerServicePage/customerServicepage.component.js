@@ -15,7 +15,7 @@ import TermsAndConditons from "../termsAndConditon/TermsAndContionsPage.componen
 export default function CustomerServicesPage() {
   const title = useParams();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     document.title = `${title.service} . Twistshake`.toUpperCase();
   }, [title]);
   return (

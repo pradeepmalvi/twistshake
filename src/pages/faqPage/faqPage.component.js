@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./faq.styles.scss";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { AiOutlineArrowRight } from "react-icons/ai";
+
+import Axios from "../../axios/axios";
+import requests from "../../axios/requests";
+
+import HtmlParser from "react-html-parser";
 
 // react accordian
 import {
@@ -14,6 +19,12 @@ import {
 } from "react-accessible-accordion";
 
 export default function FAQPage() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    Axios.get(requests.pages).then((res) => {
+      setData(res.data.pages["faq"]);
+    });
+  }, []);
   return (
     <div className="faq">
       <div className="inner-container">
@@ -22,10 +33,13 @@ export default function FAQPage() {
             <span className="icon">
               <AiOutlineArrowRight />
             </span>
-            <h2>FAQ</h2>
+            <h2>{data.length > 0 ? data[0].page_title : " "}</h2>
           </div>
           <ul className="list">
-            <li>FAQ</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">
@@ -34,7 +48,31 @@ export default function FAQPage() {
 
             <div className="accordians-content-container">
               <Accordion allowZeroExpanded>
-                <div className="each-accordian-item">
+                {data.length > 0
+                  ? data.map((eachSet, index) => (
+                      <div key={index} className="each-accordian-item">
+                        <AccordionItem>
+                          <AccordionItemHeading>
+                            <AccordionItemButton>
+                              <div className="heading-title">
+                                <span>{eachSet.page_sub_title}</span>
+                                <span>
+                                  <RiArrowDropDownLine />
+                                </span>
+                              </div>
+                            </AccordionItemButton>
+                          </AccordionItemHeading>
+                          <AccordionItemPanel>
+                            <div className="para">
+                              {HtmlParser(eachSet.page_subtitle_content)}
+                            </div>
+                          </AccordionItemPanel>
+                        </AccordionItem>
+                      </div>
+                    ))
+                  : null}
+
+                {/* <div className="each-accordian-item">
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
@@ -200,8 +238,8 @@ export default function FAQPage() {
                   </AccordionItem>
                 </div>
 
-                <div className="each-accordian-item">
-                  <AccordionItem>
+                <div className="each-accordian-item"> */}
+                {/* <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
                         <div className="heading-title">
@@ -220,8 +258,8 @@ export default function FAQPage() {
                         and product launches.
                       </p>
                     </AccordionItemPanel>
-                  </AccordionItem>
-                </div>
+                  </AccordionItem> */}
+                {/* </div> */}
               </Accordion>
             </div>
           </div>
