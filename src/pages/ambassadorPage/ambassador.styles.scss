@@ -6,9 +6,7 @@
     grid-template-columns: 25% 75%;
 
     .left {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      padding-left: 2rem;
+      padding: 2rem;
       border-right: 1px solid rgb(236, 236, 236);
 
       .left-title {
@@ -26,10 +24,7 @@
 
         li {
           margin-top: 1rem;
-
-          a {
-            color: gray;
-          }
+          color: #383838;
         }
       }
     }
@@ -50,6 +45,9 @@
       .details {
         margin-bottom: 2rem;
         letter-spacing: 1px;
+      }
+      .para {
+        font-size: 0.9rem;
       }
 
       .form {

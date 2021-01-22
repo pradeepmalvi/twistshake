@@ -180,7 +180,7 @@ export default function ShopingCart() {
                   {cartState.cartProduct && cartState.cartProduct.length > 0 ? (
                     cartState.cartProduct.map((product, index) => {
                       return (
-                        <div className="cart-product">
+                        <div key={index} className="cart-product">
                           <div className="inner-container">
                             <div className="top">
                               <span

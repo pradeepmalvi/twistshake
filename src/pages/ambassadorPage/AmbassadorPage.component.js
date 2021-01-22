@@ -61,7 +61,10 @@ export default function Ambassador() {
             <h2>Ambassador</h2>
           </div>
           <ul className="list">
-            <li>Twistshake ambassador</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">

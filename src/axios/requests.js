@@ -1,4 +1,5 @@
 export default {
+  getBestSeller: "/best-seller-products/",
   getAllProducts: "/products/",
   getProduct: "/products/",
   getPackageProduct: "/package-product/",

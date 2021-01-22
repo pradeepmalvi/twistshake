@@ -5,7 +5,7 @@ import Card from "../card/Card.component";
 import SearchInput from "../search-input/SearchInput.component";
 
 import { NavContext } from "../../context/Context";
-import { SEARCH_SHOW } from "../../context/action.types";
+import { SEARCH_SHOW, DISABLE_MOBILE_MENU } from "../../context/action.types";
 
 import Axios from "../../axios/axios";
 import requests from "../../axios/requests";
@@ -23,6 +23,13 @@ export default function MobileSearchSidebar() {
   const { navState, navStateDispatch } = useContext(NavContext);
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState("");
+
+  const disableNav = () => {
+    navStateDispatch({
+      type: DISABLE_MOBILE_MENU,
+      payload: "",
+    });
+  };
 
   const onSearch = (search) => {
     setSearch(search);
@@ -81,7 +88,10 @@ export default function MobileSearchSidebar() {
                   <Link
                     to={`/product/${product.type}/${product.id}`}
                     className="product-link"
-                    onClick={onClickProduct}
+                    onClick={() => {
+                      onClickProduct();
+                      disableNav();
+                    }}
                   >
                     <Card eachProduct={product} />
                   </Link>

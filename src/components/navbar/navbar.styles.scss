@@ -231,7 +231,11 @@
     }
   }
 
+  .action {
+    display: flex;
+  }
   .cart {
+    margin-left: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
     color: #fff;

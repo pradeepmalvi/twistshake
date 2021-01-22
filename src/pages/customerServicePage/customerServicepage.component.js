@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 
 import CustomerServiceNavbar from "../../components/customer-service-navbar/CustomerServiceNavbar.component";
 import CustomerServiceHero from "../../components/customer-services-hero/CustomerServiceHero.component";
@@ -13,9 +13,11 @@ import PrivacyAndPolicy from "../privacy-policy/PrivacyAndPolicy.component";
 import TermsAndConditons from "../termsAndConditon/TermsAndContionsPage.component";
 
 export default function CustomerServicesPage() {
+  const title = useParams();
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    // window.scrollTo(0, 0);
+    document.title = `${title.service} . Twistshake`.toUpperCase();
+  }, [title]);
   return (
     <div className="customerServicesPage">
       <CustomerServiceHero />

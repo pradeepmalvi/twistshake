@@ -107,23 +107,25 @@ export default function Navbar() {
           <Link to="/">TWISTSHAKE</Link>
         </h3>
       </div>
-      {localStorage.getItem("user") ? (
-        <Link to="/myaccount" className="cart">
-          <AiOutlineUser></AiOutlineUser>
-        </Link>
-      ) : (
-        ""
-      )}
-      <div
-        className="cart"
-        onClick={() => {
-          navStateDispatch({ type: CART_SIDEBAR, payload: "active" });
-        }}
-      >
-        <div className="counter-cart">
-          {cartState.cartProduct !== null ? cartState.cartProduct.length : 0}
+      <div className="action">
+        {localStorage.getItem("user") ? (
+          <Link to="/myaccount" className="cart">
+            <AiOutlineUser></AiOutlineUser>
+          </Link>
+        ) : (
+          ""
+        )}
+        <div
+          className="cart"
+          onClick={() => {
+            navStateDispatch({ type: CART_SIDEBAR, payload: "active" });
+          }}
+        >
+          <div className="counter-cart">
+            {cartState.cartProduct !== null ? cartState.cartProduct.length : 0}
+          </div>
+          <CgShoppingBag />
         </div>
-        <CgShoppingBag />
       </div>
     </div>
   ) : (

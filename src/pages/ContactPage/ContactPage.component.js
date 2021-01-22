@@ -9,7 +9,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // distributor form data
-export default function Ambassador() {
+export default function Contact() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    Axios.get(requests.pages).then((res) => {
+      setData(res.data.pages["contact"]);
+    });
+  }, []);
+
+  console.log(data);
+
   const [distributorCompany, setDisributorCompany] = useState("");
   const [distributorCountry, setDistributorCountry] = useState("");
   const [distributorName, setDistributorName] = useState("");
@@ -91,17 +100,20 @@ export default function Ambassador() {
             <span className="icon">
               <AiOutlineArrowRight />
             </span>
-            <h2>Contact</h2>
+            <h2>{data.length > 0 ? data[0].page_title : " "}</h2>
           </div>
           <ul className="list">
-            <li>Twistshake ambassador</li>
+            {data.length > 0 &&
+              data.map((eachset, index) => (
+                <li key={index}>{eachset.page_sub_title}</li>
+              ))}
           </ul>
         </div>
         <div className="right">
           <div className="content">
             <p className="para-title">contact information</p>
             <div className="address">
-              Twistshake of Sweden AB Örjansgränd 1 721 32 Västerås Sweden{" "}
+              Twistshake of Sweden AB Örjansgränd 1 721 32 Västerås Sweden
               <br></br>
               service@twistshake.com
             </div>
@@ -115,7 +127,7 @@ export default function Ambassador() {
             </p>
             <form onSubmit={handleContactUsSubmit}>
               <div className="form-element-group common">
-                <label htmlFor="company">subject</label>
+                <label htmlFor="company">subject *</label>
                 <select
                   name=""
                   id=""
@@ -140,7 +152,7 @@ export default function Ambassador() {
                 />
               </div>
               <div className="name common">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">First and last name *</label>
                 <input
                   type="text"
                   placeholder="Your Name"
@@ -150,7 +162,7 @@ export default function Ambassador() {
                 />
               </div>
               <div className="instagram-form-group common">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="email"
                   placeholder="Your email"
