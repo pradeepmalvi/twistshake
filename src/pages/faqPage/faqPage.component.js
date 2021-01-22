@@ -9,6 +9,8 @@ import requests from "../../axios/requests";
 
 import HtmlParser from "react-html-parser";
 
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 // react accordian
 import {
   Accordion,
@@ -38,7 +40,9 @@ export default function FAQPage() {
           <ul className="list">
             {data.length > 0 &&
               data.map((eachset, index) => (
-                <li key={index}>{eachset.page_sub_title}</li>
+                <AnchorLink offset="80" href={`#para${index}`}>
+                  <li key={index}>{eachset.page_sub_title}</li>
+                </AnchorLink>
               ))}
           </ul>
         </div>
@@ -50,7 +54,11 @@ export default function FAQPage() {
               <Accordion allowZeroExpanded>
                 {data.length > 0
                   ? data.map((eachSet, index) => (
-                      <div key={index} className="each-accordian-item">
+                      <div
+                        key={index}
+                        className="each-accordian-item"
+                        id={`para${index}`}
+                      >
                         <AccordionItem>
                           <AccordionItemHeading>
                             <AccordionItemButton>

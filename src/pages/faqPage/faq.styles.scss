@@ -85,3 +85,8 @@
 [data-whatinput="touch"] :focus {
   outline: none;
 }
+
+.accordion__button:focus {
+  font-weight: bold;
+  outline: none;
+}

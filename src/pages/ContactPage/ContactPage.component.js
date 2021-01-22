@@ -8,6 +8,8 @@ import requests from "../../axios/requests";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 // distributor form data
 export default function Contact() {
   const [data, setData] = useState([]);
@@ -105,12 +107,14 @@ export default function Contact() {
           <ul className="list">
             {data.length > 0 &&
               data.map((eachset, index) => (
-                <li key={index}>{eachset.page_sub_title}</li>
+                <AnchorLink offset="80" href={`#para${index}`}>
+                  <li key={index}>{eachset.page_sub_title}</li>
+                </AnchorLink>
               ))}
           </ul>
         </div>
         <div className="right">
-          <div className="content">
+          <div className="content" id={`para0`}>
             <p className="para-title">contact information</p>
             <div className="address">
               Twistshake of Sweden AB Örjansgränd 1 721 32 Västerås Sweden

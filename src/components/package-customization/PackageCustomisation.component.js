@@ -33,6 +33,12 @@ import SelectedProductOption from "../selectedProductOption/SelectedProductCusto
 import Button from "../button/Button.component";
 import CustomProductCard from "../custom-product-card/CustomProductCard.component";
 
+const config = {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
+  },
+};
+
 export default function PackageCustomisation() {
   const { productState, productStateDispatch } = useContext(ProductContext);
   const { cartState, cartStateDispatch } = useContext(AppContext);
@@ -57,6 +63,21 @@ export default function PackageCustomisation() {
       setAddBasketButton(false);
     }
   }, [productState.displayProduct, coustomizeData]);
+
+  const getCart = () => {
+    console.log("hello");
+    Axios.get(
+      `${requests.getCart}/${localStorage.getItem("ts-userid")}`,
+      config
+    ).then((response) => {
+      // setCart(response.data.products);
+
+      cartStateDispatch({
+        type: "SET_PRODDECT",
+        payload: response.data.products,
+      });
+    });
+  };
 
   const handlechange = (e, index) => {
     console.log(e.target.id);
@@ -120,36 +141,6 @@ export default function PackageCustomisation() {
     ) {
       addToCart();
       return false;
-      history.push("/checkout");
-      const saveCartData = [];
-      const cartSingleProduct = {
-        product: productState.product,
-        productDetails: productState.savedProduct,
-        quantity: 1,
-      };
-      if (cartState.cartProduct) {
-        cartState.cartProduct.map((eachItem) => {
-          saveCartData.push(eachItem);
-        });
-        saveCartData.push(cartSingleProduct);
-        cartStateDispatch({
-          type: "SET_PRODDECT",
-          payload: saveCartData,
-        });
-        productStateDispatch({
-          type: SAVE_PRODUCT,
-          payload: [],
-        });
-      } else {
-        cartStateDispatch({
-          type: "SET_PRODDECT",
-          payload: [cartSingleProduct],
-        });
-        productStateDispatch({
-          type: SAVE_PRODUCT,
-          payload: [],
-        });
-      }
     }
   };
 
@@ -178,16 +169,9 @@ export default function PackageCustomisation() {
       },
     };
 
-    console.log(data);
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
-      },
-    };
-
     Axios.post(`${requests.addToCart}`, data, config).then((response) => {
       onProductAdded(true);
+      getCart();
     });
   };
 

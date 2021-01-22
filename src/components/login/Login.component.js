@@ -25,6 +25,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [userNameErr, setUserNameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
+  const [isForgot, setIsForgot] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [emailErr, setEmailErr] = useState("");
 
   const { user } = appState;
 
@@ -102,11 +106,45 @@ export default function Login() {
       setPassword(e.target.value);
       setPasswordErr("");
     }
+
+    if (e.target.id.toLowerCase() === "email".toLowerCase()) {
+      setEmail(e.target.value);
+      setEmailErr("");
+    }
   };
 
   if (user) {
     return <div>your logged in {user.name}</div>;
   }
+
+  const onForgotPassword = () => {
+    setIsForgot(true);
+  };
+  const onSendEmail = async () => {
+    if (email) {
+      if (!validateEmail(email)) {
+        setEmailErr("Invalid email");
+        return false;
+      }
+    } else {
+      setEmailErr("Please enter email address");
+      return false;
+    }
+
+    const response = await Axios.post(requests.forgotPassword, {
+      email: email,
+    }).then((res) => {
+      toast(
+        "An email has been sent to the supplied email address. Follow the instruction in the email to reset your password.",
+        {
+          type: toast.TYPE.SUCCESS,
+          autoClose: 10000,
+        }
+      );
+
+      setEmail("");
+    });
+  };
 
   return (
     <div className="login">
@@ -151,12 +189,41 @@ export default function Login() {
             </form>
           </div>
           <div className="login-footer">
-            <Link to="/forgot-password" className="login-footer-link">
-              <VscKey /> <span>Forgot Password</span>
-            </Link>
             <Link to="/create-account" className="login-footer-link">
               <FiUserPlus /> <span>Create Account</span>{" "}
             </Link>
+            <Link className="login-footer-link" onClick={onForgotPassword}>
+              <VscKey /> <span>Forgot Password</span>
+            </Link>
+
+            {isForgot ? (
+              <div className="forgot-password-wrapper">
+                <div className="forgot-password">
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      className="email"
+                      placeholder="Enter your email"
+                      id="email"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button
+                    onClick={onSendEmail}
+                    name="loginSubmit"
+                    className="submit"
+                  >
+                    Send
+                  </button>
+                </div>
+                <div className="validationMsg">{emailErr}</div>
+
+                <p>Enter your email address to reset your password.</p>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

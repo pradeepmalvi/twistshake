@@ -18,6 +18,7 @@ export default function EditAccountForm() {
   const [name, setname] = useState("");
   const [phone, setphone] = useState("");
   const [password, setpassword] = useState("");
+  const [new_password, setnew_password] = useState("");
   const [c_password, setc_password] = useState("");
   const [editAccount, setEditAccount] = useState(false);
 
@@ -53,6 +54,9 @@ export default function EditAccountForm() {
     if (e.target.id.toLowerCase() === "password".toLowerCase()) {
       setpassword(e.target.value);
     }
+    if (e.target.id.toLowerCase() === "new_password".toLowerCase()) {
+      setnew_password(e.target.value);
+    }
     if (e.target.id.toLowerCase() === "c_password".toLowerCase()) {
       setc_password(e.target.value);
     }
@@ -67,12 +71,29 @@ export default function EditAccountForm() {
       });
       return false;
     }
-    if (password !== c_password) {
+
+    if (new_password !== c_password) {
+      if (!password) {
+        toast("Please enter current password!", {
+          type: toast.TYPE.ERROR,
+          autoClose: 10000,
+        });
+        return false;
+      }
+
       toast("Passwords should be same!", {
         type: toast.TYPE.ERROR,
         autoClose: 10000,
       });
       return false;
+    } else {
+      if (password) {
+        toast("Please enter new passsword and confirm password!", {
+          type: toast.TYPE.ERROR,
+          autoClose: 10000,
+        });
+        return false;
+      }
     }
 
     let data = {
@@ -80,7 +101,8 @@ export default function EditAccountForm() {
       name: name,
       phone: phone,
       password: password,
-      c_password: c_password,
+      new_password: new_password,
+      // c_password: c_password,
     };
 
     e.preventDefault();
@@ -96,7 +118,7 @@ export default function EditAccountForm() {
         }
         // getAccount();
         setEditAccount(false);
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => {
         console.log(err);
@@ -161,15 +183,27 @@ export default function EditAccountForm() {
               />
             </div>
             <div className="form-element-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Current Password</label>
               <input
                 id="password"
                 name="password"
                 onChange={handleChange}
-                placeholder="Password"
+                placeholder="Current Password"
                 type="password"
                 className="password"
                 value={password}
+              />
+            </div>
+            <div className="form-element-group">
+              <label htmlFor="password">New Password</label>
+              <input
+                id="new_password"
+                name="new_password"
+                onChange={handleChange}
+                placeholder="New Password"
+                type="password"
+                className="password"
+                value={new_password}
               />
             </div>
             <div className="form-element-group">

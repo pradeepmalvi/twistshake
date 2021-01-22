@@ -11,6 +11,8 @@ import HtmlParser from "react-html-parser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 export default function Ambassador() {
   const [name, setName] = useState("");
   const [insta, setInsta] = useState("");
@@ -63,7 +65,9 @@ export default function Ambassador() {
           <ul className="list">
             {data.length > 0 &&
               data.map((eachset, index) => (
-                <li key={index}>{eachset.page_sub_title}</li>
+                <AnchorLink offset="80" href={`#para${index}`}>
+                  <li key={index}>{eachset.page_sub_title}</li>
+                </AnchorLink>
               ))}
           </ul>
         </div>
@@ -71,7 +75,7 @@ export default function Ambassador() {
           <div className="content">
             {data.length > 0
               ? data.map((eachSet, index) => (
-                  <div key={index}>
+                  <div key={index} id={`para${index}`}>
                     <h1 className="para-title">{eachSet.page_sub_title}</h1>
                     <div className="para">
                       {HtmlParser(eachSet.page_subtitle_content)}

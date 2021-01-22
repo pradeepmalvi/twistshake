@@ -9,6 +9,8 @@ import HtmlParser from "react-html-parser";
 
 import { AiOutlineArrowRight } from "react-icons/ai";
 
+import AnchorLink from "react-anchor-link-smooth-scroll";
+
 export default function TermsAndConditons() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -31,14 +33,16 @@ export default function TermsAndConditons() {
           <ul className="list">
             {data.length > 0 &&
               data.map((eachset, index) => (
-                <li key={index}>{eachset.page_sub_title}</li>
+                <AnchorLink offset="80" href={`#para${index}`}>
+                  <li key={index}>{eachset.page_sub_title}</li>
+                </AnchorLink>
               ))}
           </ul>
         </div>
         <div className="right">
           {data.length > 0
             ? data.map((eachSet, index) => (
-                <div key={index}>
+                <div key={index} id={`para${index}`}>
                   <h1 className="para-title">{eachSet.page_sub_title}</h1>
                   <div className="para">
                     {HtmlParser(eachSet.page_subtitle_content)}

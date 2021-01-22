@@ -26,4 +26,5 @@ export default {
   distributor: "/distributor",
   contactUs: "/contact-us",
   pages: "/pages",
+  forgotPassword: "/password/create",
 };

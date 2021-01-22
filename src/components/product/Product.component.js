@@ -45,6 +45,12 @@ import ProductSlider from "../product-slider/ProductSlider.component";
 import ImagesSlider from "../imgs-slider/ImgsSlider.component";
 import { AppContext, NavContext } from "../../context/Context";
 
+const config = {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
+  },
+};
+
 export default function Product(props) {
   const [quantity, setQuantity] = useState(1);
   const [isProductAdded, onProductAdded] = useState(false);
@@ -64,6 +70,21 @@ export default function Product(props) {
   const { cartState, cartStateDispatch } = useContext(AppContext);
 
   const [productQuantity, setProductQuantity] = useState(quantity);
+
+  const getCart = () => {
+    console.log("hello");
+    Axios.get(
+      `${requests.getCart}/${localStorage.getItem("ts-userid")}`,
+      config
+    ).then((response) => {
+      // setCart(response.data.products);
+
+      cartStateDispatch({
+        type: "SET_PRODDECT",
+        payload: response.data.products,
+      });
+    });
+  };
 
   const onAddQuantity = (quantity) => {
     // setProductQuantity(quantity);
@@ -172,14 +193,9 @@ export default function Product(props) {
         },
       };
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
-        },
-      };
-
       Axios.post(`${requests.addToCart}`, data, config).then((response) => {
         onProductAdded(true);
+        getCart();
       });
     }
   };

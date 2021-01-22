@@ -354,6 +354,7 @@ function CheckOutPage() {
                       name="city"
                       className="choose-province"
                       onChange={handleChange}
+                      required
                     >
                       <option value="">Choose your city</option>
                       {cities &&

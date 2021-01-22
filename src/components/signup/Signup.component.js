@@ -163,7 +163,7 @@ export default function Signup() {
         })
         .catch((res) => {
           console.log(res.response.data.error);
-          toast("sorry something is wrong, please try again", {
+          toast(res.response.data.error, {
             type: toast.TYPE.ERROR,
             autoClose: 10000,
           });

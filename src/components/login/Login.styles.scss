@@ -83,4 +83,48 @@
     color: rgb(240, 93, 93);
     font-size: 0.7rem;
   }
+  .forgot-password-wrapper {
+    .forgot-password {
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        border: none;
+        margin: 1rem auto;
+        width: 100%;
+        padding: 1.3rem;
+        border-radius: 0.5rem;
+      }
+      button {
+        border: none;
+        margin: 1rem auto;
+        width: 100%;
+        padding: 1.3rem;
+        border-radius: 0.5rem;
+      }
+      .email {
+        border: none;
+        // margin: 1rem auto;
+        width: 220px;
+        margin-right: 10px;
+        padding: 1.3rem;
+        border-radius: 0.5rem;
+        background: #f1f1f1;
+      }
+      .submit {
+        background-color: #202020;
+        color: #fff;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        padding: 1.3rem;
+        cursor: pointer;
+      }
+    }
+    .validationMsg {
+      padding-bottom: 10px;
+    }
+    p {
+      padding-top: 10px;
+    }
+  }
 }
