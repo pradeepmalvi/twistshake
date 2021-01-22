@@ -264,29 +264,6 @@ function App() {
 
                       {/* our best seller section starts */}
                       <Row title="Our best seller">
-                        {/* <OwlCarousel
-                          items={4}
-                          touchDrag={true}
-                          pullDrag={true}
-                          responsive={responsive}
-                          className="best-seller-row"
-                        >
-                          {homeState.bestSellerProducts.length > 0
-                            ? homeState.bestSellerProducts.map(
-                                (product, index) => (
-                                  <div className="item" key={index}>
-                                    <Link
-                                      to={`/product/${product.type}/${product.id}`}
-                                      className="product-link"
-                                    >
-                                      <Card eachProduct={product} />
-                                    </Link>
-                                  </div>
-                                )
-                              )
-                            : null}
-                        </OwlCarousel> */}
-
                         <div className="best-seller-slider">
                           <Slider {...settings}>
                             {homeState.bestSellerProducts.length > 0

@@ -63,6 +63,7 @@ export default function CategoryPage() {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     fetchCategoryData();
   }, [category]);
 
