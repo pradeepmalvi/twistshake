@@ -107,7 +107,7 @@ export default function Ambassador() {
                 />
               </div>
               <div className="instagram-form-group common">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <input
                   type="email"
                   placeholder="Your email"
@@ -117,7 +117,7 @@ export default function Ambassador() {
                 />
               </div>
               <div className="email-form-group common">
-                <label htmlFor="msg">Your Message</label>
+                <label htmlFor="msg">Leave a message</label>
                 <textarea
                   placeholder="Your message"
                   className="msg"

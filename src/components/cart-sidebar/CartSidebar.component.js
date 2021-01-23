@@ -150,7 +150,12 @@ export default function ShopingCart() {
   };
   return (
     appState && (
-      <div ref={sidebarRef} className={`cart-sidebar ${isCartActive}`}>
+      <div
+        onMouseOver={() => (document.body.style.overflow = "hidden")}
+        onMouseOut={() => (document.body.style.overflow = "auto")}
+        ref={sidebarRef}
+        className={`cart-sidebar ${isCartActive}`}
+      >
         <div className="inner-wrapper">
           <div className="header-top">
             <div className="title">

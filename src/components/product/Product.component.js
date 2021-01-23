@@ -70,14 +70,14 @@ export default function Product(props) {
   const { cartState, cartStateDispatch } = useContext(AppContext);
 
   const [productQuantity, setProductQuantity] = useState(quantity);
+  const [Cart, setCart] = useState([]);
 
   const getCart = () => {
-    console.log("hello");
     Axios.get(
       `${requests.getCart}/${localStorage.getItem("ts-userid")}`,
       config
     ).then((response) => {
-      // setCart(response.data.products);
+      setCart(response.data.products);
 
       cartStateDispatch({
         type: "SET_PRODDECT",
@@ -104,6 +104,8 @@ export default function Product(props) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    getCart();
 
     let handler = (e) => {
       if (!sidebarRef.current.contains(e.target)) {
@@ -136,68 +138,53 @@ export default function Product(props) {
     const { product } = productState;
     const { productSku } = productState;
 
+    if (isProductAlreadyAddToCart(product.id)) {
+      return false;
+    }
+
     if (!localStorage.getItem("ts-token")) {
       history.push(`/login/${product.id}`);
 
       return false;
     }
 
-    if (!localStorage.getItem("ts-token")) {
-      var cartProduct = [];
-      let data = {
+    let data = {
+      cart_item: {
         user_id: localStorage.getItem("ts-userid"),
         sku_id: productSku ? productSku : product.sku_id,
         quantity: quantity,
         product_type: "single",
         product_id: product.id,
         cart_package_item: [],
-        type: product.type,
-        id: product.id,
-        product_name: product.product_name,
-        price: product.price,
-        discount: product.discount,
-        total_price: product.total_price,
-        total_saving: product.total_saving,
-        sku_id: product.sku_id,
-        stock: product.stock,
-        shipping: product.shipping,
-        return_policy: product.return_policy,
-        short_descript: product.short_descript,
-        long_descript: product.long_descript,
-        product_feature: product.product_feature,
-        meta_key: product.meta_key,
-        meta_title: product.meta_title,
-      };
-      if (product.type === "single") {
-        data.product_image = product.product_thumbnail;
-      } else {
-        data.product_thumbnail = product.product_thumbnail;
-      }
+      },
+    };
 
-      cartProduct.push(data);
-
-      cartStateDispatch({
-        type: "SET_PRODDECT",
-        payload: cartProduct,
-      });
+    Axios.post(`${requests.addToCart}`, data, config).then((response) => {
       onProductAdded(true);
-    } else {
-      let data = {
-        cart_item: {
-          user_id: localStorage.getItem("ts-userid"),
-          sku_id: productSku ? productSku : product.sku_id,
-          quantity: quantity,
-          product_type: "single",
-          product_id: product.id,
-          cart_package_item: [],
-        },
-      };
+      getCart();
+    });
+  };
 
-      Axios.post(`${requests.addToCart}`, data, config).then((response) => {
+  const isProductAlreadyAddToCart = (productId) => {
+    for (let i = 0; i < Cart.length; i++) {
+      if (productId === Cart[i].product_id) {
+        updateQuantity(Cart[i].cart_id, Cart[i].quantity + quantity);
+        return true;
+      }
+    }
+  };
+
+  const updateQuantity = (cartIndex, updateQuantity) => {
+    console.log(cartIndex, updateQuantity);
+    const data = {
+      quantity: updateQuantity,
+    };
+    Axios.put(`${requests.getCart}/${cartIndex}`, data, config).then(
+      (response) => {
         onProductAdded(true);
         getCart();
-      });
-    }
+      }
+    );
   };
 
   const settings = {

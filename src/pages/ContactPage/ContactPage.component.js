@@ -136,6 +136,7 @@ export default function Contact() {
                   name=""
                   id=""
                   onChange={(e) => setSubject(e.target.value)}
+                  required
                 >
                   <option value="">Select a category</option>
                   <option value="product-delivery">Product Delivery</option>
@@ -153,6 +154,7 @@ export default function Contact() {
                   className="orderNumber"
                   value={orderNumber}
                   onChange={(e) => setOrderNumber(e.target.value)}
+                  required
                 />
               </div>
               <div className="name common">
@@ -163,6 +165,7 @@ export default function Contact() {
                   className="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div className="instagram-form-group common">
@@ -173,6 +176,7 @@ export default function Contact() {
                   className="email"
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="email-form-group common">
@@ -182,6 +186,7 @@ export default function Contact() {
                   className="msg"
                   value={yourMsg}
                   onChange={(e) => setYourMsg(e.target.value)}
+                  required
                 ></textarea>
               </div>
               <div className="form-submit-btn">
@@ -195,7 +200,7 @@ export default function Contact() {
             </form>
           </div>
           <div className="form-1">
-            <h3 className="form-1-title">
+            <h3 className="form-1-title" id={`para1`}>
               Would you like to become a distributor?
             </h3>
             <p className="sub-title">
@@ -210,6 +215,7 @@ export default function Contact() {
                     className="company"
                     value={distributorCompany}
                     onChange={(e) => setDisributorCompany(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="form-element-group">
@@ -219,6 +225,7 @@ export default function Contact() {
                     className="country"
                     value={distributorCountry}
                     onChange={(e) => setDistributorCountry(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="form-element-group">
@@ -228,6 +235,7 @@ export default function Contact() {
                     className="name"
                     value={distributorName}
                     onChange={(e) => setDistributorName(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="form-element-group">
@@ -237,15 +245,17 @@ export default function Contact() {
                     className="phone"
                     value={distributorPhone}
                     onChange={(e) => setDistributorPhone(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="form-element-group">
                   <label htmlFor="company">Email *</label>
                   <input
-                    type="text"
+                    type="email"
                     className="email"
                     value={distributorEmail}
                     onChange={(e) => setDistributorEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="form-element-group">
@@ -255,6 +265,7 @@ export default function Contact() {
                     className="type"
                     value={distributorCompanyType}
                     onChange={(e) => setDistributorCompanyType(e.target.value)}
+                    required
                   />
                 </div>
 
@@ -267,6 +278,7 @@ export default function Contact() {
                     className="message"
                     value={distributorMsg}
                     onChange={(e) => setDistributorMsg(e.target.value)}
+                    required
                   ></textarea>
                 </div>
               </div>

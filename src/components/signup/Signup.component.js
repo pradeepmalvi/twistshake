@@ -50,9 +50,8 @@ export default function Signup() {
 
     if (e.target.id.toLowerCase() === "phone") {
       var text = e.target.value;
-      var phoneRe = /^[2-9]\d{2}[2-9]\d{2}\d{4}$/;
-      var digits = text.replace(/\D/g, "");
-      setPhone(digits);
+
+      setPhone(text);
       setPhoneErr("");
     }
 
@@ -100,7 +99,7 @@ export default function Signup() {
 
     // validating phone
     function phonenumber(phoneInput) {
-      var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      var phoneno = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
       if (phoneInput.match(phoneno)) {
         return true;
       } else {
@@ -203,7 +202,7 @@ export default function Signup() {
               />
               <div className="validationMsg">{emailErr}</div>
               <FormInput
-                type="tel"
+                type="number"
                 name="mobile"
                 value={phone}
                 id="phone"

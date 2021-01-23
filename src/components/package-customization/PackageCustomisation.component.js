@@ -65,7 +65,6 @@ export default function PackageCustomisation() {
   }, [productState.displayProduct, coustomizeData]);
 
   const getCart = () => {
-    console.log("hello");
     Axios.get(
       `${requests.getCart}/${localStorage.getItem("ts-userid")}`,
       config
