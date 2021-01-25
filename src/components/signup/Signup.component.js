@@ -37,7 +37,7 @@ export default function Signup() {
 
   const handleChange = (e) => {
     if (e.target.id.toLowerCase() === "name") {
-      var text = e.target.value.replace(/[^a-z]/gi, "");
+      var text = e.target.value.replace(/[^a-z ]/gi, "");
       console.log(text);
       setName(text);
       setNameErr("");
@@ -49,8 +49,7 @@ export default function Signup() {
     }
 
     if (e.target.id.toLowerCase() === "phone") {
-      var text = e.target.value;
-
+      var text = e.target.value.replace(/[^0-9+]/gi, "");
       setPhone(text);
       setPhoneErr("");
     }
@@ -202,7 +201,7 @@ export default function Signup() {
               />
               <div className="validationMsg">{emailErr}</div>
               <FormInput
-                type="number"
+                type="text"
                 name="mobile"
                 value={phone}
                 id="phone"

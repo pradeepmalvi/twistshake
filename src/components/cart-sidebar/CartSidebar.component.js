@@ -150,12 +150,7 @@ export default function ShopingCart() {
   };
   return (
     appState && (
-      <div
-        onMouseOver={() => (document.body.style.overflow = "hidden")}
-        onMouseOut={() => (document.body.style.overflow = "auto")}
-        ref={sidebarRef}
-        className={`cart-sidebar ${isCartActive}`}
-      >
+      <div ref={sidebarRef} className={`cart-sidebar ${isCartActive}`}>
         <div className="inner-wrapper">
           <div className="header-top">
             <div className="title">
@@ -241,9 +236,9 @@ export default function ShopingCart() {
                   </div>
                 </div>
 
-                <Button onClick={goToCheckout}>
+                <button className="checkout-button" onClick={goToCheckout}>
                   <span>Go to checkout</span>
-                </Button>
+                </button>
               </div>
             </div>
           ) : (

@@ -88,7 +88,19 @@ export default function EditAccountForm() {
       return false;
     } else {
       if (password) {
-        toast("Please enter new passsword and confirm password!", {
+        if (!new_password || !c_password) {
+          toast("Please enter new passsword and confirm password!", {
+            type: toast.TYPE.ERROR,
+            autoClose: 10000,
+          });
+          return false;
+        }
+      }
+    }
+
+    if (new_password || c_password || password) {
+      if (new_password.length < 6) {
+        toast("Password should minimum of 6 charector", {
           type: toast.TYPE.ERROR,
           autoClose: 10000,
         });
@@ -121,6 +133,10 @@ export default function EditAccountForm() {
         // window.location.reload();
       })
       .catch((err) => {
+        toast(err.response.data, {
+          type: toast.TYPE.ERROR,
+          autoClose: 10000,
+        });
         console.log(err);
       });
   };

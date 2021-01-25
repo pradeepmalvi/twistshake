@@ -130,4 +130,17 @@
     font-weight: bold;
     font-size: 20px;
   }
+  .checkout-button {
+    display: block;
+    width: 100%;
+    padding: 1.1rem 2.1rem;
+    background-color: #202020;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    text-transform: uppercase;
+  }
 }

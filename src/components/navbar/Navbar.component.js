@@ -65,7 +65,9 @@ export default function Navbar() {
     window.location.href = "/";
     window.location.reload();
   };
-
+  const cartSidebarToggle = () => {
+    navStateDispatch({ type: CART_SIDEBAR, payload: "active" });
+  };
   return width < breakPoint ? (
     <div
       className={`navbar-mobile ${
@@ -211,12 +213,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className="icon cart">
-            <div
-              className="icon-link"
-              onClick={() => {
-                navStateDispatch({ type: CART_SIDEBAR, payload: "active" });
-              }}
-            >
+            <div className="icon-link" onClick={cartSidebarToggle}>
               <div className="counter-cart">
                 {cartState.cartProduct !== null
                   ? cartState.cartProduct.length

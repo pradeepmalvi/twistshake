@@ -63,6 +63,10 @@ export default function CategoryPage() {
   }
 
   useEffect(() => {
+    var title = `${category} | Twistshake`;
+    title = title.replace("-", " ");
+    title = title.replace(/\b\w/g, (l) => l.toUpperCase());
+    document.title = title;
     window.scrollTo(0, 0);
     fetchCategoryData();
   }, [category]);
