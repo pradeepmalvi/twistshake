@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Login.styles.scss";
 import FormInput from "../formInput/FormInput.component";
 import { Link, useHistory, useParams } from "react-router-dom";
@@ -34,6 +34,10 @@ export default function Login() {
 
   const history = useHistory();
   const params = useParams();
+
+  useEffect(() => {
+    document.title = `Login | Twistshake`;
+  });
 
   const validateEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
