@@ -240,6 +240,22 @@
   }
 }
 
+@media only screen and (max-width: 733px) {
+  .footer {
+    position: relative;
+    .footer-icons {
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .icons-left {
+        position: absolute;
+        bottom: 4rem;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .App {
     .row {

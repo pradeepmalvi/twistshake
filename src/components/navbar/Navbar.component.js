@@ -17,7 +17,7 @@ import {
 import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { CgShoppingBag } from "react-icons/cg";
-import { AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { VscClose } from "react-icons/vsc";
 
 export default function Navbar() {
@@ -88,7 +88,11 @@ export default function Navbar() {
             });
           }}
         >
-          <AiOutlineMenu />
+          {navState.menuSidebarMobile === "active" ? (
+            <AiOutlineClose />
+          ) : (
+            <AiOutlineMenu />
+          )}
         </div>
         <div
           className="search-icon"
@@ -99,7 +103,12 @@ export default function Navbar() {
             });
           }}
         >
-          <BiSearch />
+          {" "}
+          {navState.searchSideBarMobile === "active" ? (
+            <AiOutlineClose />
+          ) : (
+            <BiSearch />
+          )}
         </div>
       </div>
       <div className="logo">
