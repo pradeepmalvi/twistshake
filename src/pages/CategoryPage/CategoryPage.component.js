@@ -21,7 +21,9 @@ export default function CategoryPage() {
   const [categoryProducts, setCategoryProducts] = useState({
     products: [],
     categoryBG: "",
+    categoryContent: {},
   });
+
   const { appState } = useContext(AppContext);
   let navLinks = "";
   let navLinkObjWithCatID = {};
@@ -59,8 +61,11 @@ export default function CategoryPage() {
       ...categoryProducts,
       products: categoryData.data.product,
       categoryBG: categoryBG,
+      categoryContent: categoryData.data.category_content,
     });
   }
+
+  console.log(categoryProducts);
 
   useEffect(() => {
     var title = `${category} | Twistshake`;
@@ -106,13 +111,12 @@ export default function CategoryPage() {
               : null}
           </Row>
         </div>
-        {/* <div className="text-content">
-          <h2 className="title">Twistshake Campaigns</h2>
+        <div className="text-content">
+          <h2 className="title">{categoryProducts.categoryContent.title}</h2>
           <p className="description-text">
-            Here you will find lots of great offers and perfect packages
-            arranged according to age and needs.
+            {categoryProducts.categoryContent.content}
           </p>
-        </div> */}
+        </div>
       </div>
     </div>
   ) : (
