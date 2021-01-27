@@ -7,6 +7,15 @@ import {
 } from "../action.types";
 
 export const navReducer = (state, action) => {
+  console.log(action.type, action.payload);
+  if (action.type === "CART_SIDEBAR") {
+    if (action.payload === "active") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }
+
   switch (action.type) {
     case CART_SIDEBAR:
       return {

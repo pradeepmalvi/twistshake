@@ -200,6 +200,7 @@ function App() {
 
   // fetching data from product api
   useEffect(() => {
+    document.title = `Home | Twistshake`;
     fetchData();
   }, []);
 

@@ -94,6 +94,7 @@ export default function Ambassador() {
                   className="your-name-input"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div className="instagram-form-group common">
@@ -104,6 +105,7 @@ export default function Ambassador() {
                   className="instagram"
                   value={insta}
                   onChange={(e) => setInsta(e.target.value)}
+                  required
                 />
               </div>
               <div className="instagram-form-group common">
@@ -114,6 +116,7 @@ export default function Ambassador() {
                   className="email"
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="email-form-group common">
@@ -123,6 +126,7 @@ export default function Ambassador() {
                   className="msg"
                   value={yourMsg}
                   onChange={(e) => setYourMsg(e.target.value)}
+                  required
                 ></textarea>
               </div>
               <div className="form-submit-btn">

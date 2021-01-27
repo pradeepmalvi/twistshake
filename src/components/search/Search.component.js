@@ -25,9 +25,14 @@ export default function Search() {
 
   const onSearch = (search) => {
     setSearch(search);
+
     var data = {
       pname: search,
     };
+    if (search == "" || search === " " || search === "  ") {
+      data.pname = "*";
+    }
+
     Axios.post(`${requests.searchProduct}`, data, config).then((response) => {
       console.log(response);
       setProducts(response.data.products);

@@ -40,6 +40,7 @@ function CheckOutPage() {
     });
 
   useEffect(() => {
+    document.title = `Checkout | Twistshake`;
     window.scrollTo(0, 0);
     getCart();
     getCities();
@@ -205,10 +206,12 @@ function CheckOutPage() {
       setaddress_type(e.target.value);
     }
     if (e.target.id.toLowerCase() === "phone".toLowerCase()) {
-      setphone(e.target.value);
+      var text = e.target.value.replace(/[^0-9+]/gi, "");
+      setphone(text);
     }
     if (e.target.id.toLowerCase() === "alternate_phone".toLowerCase()) {
-      setalternate_phone(e.target.value);
+      var text = e.target.value.replace(/[^0-9+]/gi, "");
+      setalternate_phone(text);
     }
     if (e.target.id.toLowerCase() === "shipping_charge".toLowerCase()) {
       setshipping_charge(e.target.value);
@@ -373,7 +376,8 @@ function CheckOutPage() {
                   value={phone}
                   handleChange={handleChange}
                   placeholder="Phone"
-                  type="number"
+                  type="text"
+                  min="0"
                   className="phone"
                   required
                 />
@@ -382,7 +386,8 @@ function CheckOutPage() {
                   value={alternate_phone}
                   handleChange={handleChange}
                   placeholder="Alternate Phone"
-                  type="number"
+                  type="text"
+                  min="0"
                   className="phone"
                   // required
                 />

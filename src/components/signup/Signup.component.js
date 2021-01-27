@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // react router
 import { useHistory } from "react-router-dom";
 
@@ -23,6 +23,9 @@ export default function Signup() {
   const [confirmPasswordErr, setConfirmPasswordErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
 
+  useEffect(() => {
+    document.title = `Sign Up | Twistshake`;
+  });
   const notifySucess = () =>
     toast("Sucessfully Registered, use your Email Password to login", {
       type: toast.TYPE.INFO,
@@ -37,7 +40,7 @@ export default function Signup() {
 
   const handleChange = (e) => {
     if (e.target.id.toLowerCase() === "name") {
-      var text = e.target.value.replace(/[^a-z]/gi, "");
+      var text = e.target.value.replace(/[^a-z ]/gi, "");
       console.log(text);
       setName(text);
       setNameErr("");
@@ -49,8 +52,7 @@ export default function Signup() {
     }
 
     if (e.target.id.toLowerCase() === "phone") {
-      var text = e.target.value;
-
+      var text = e.target.value.replace(/[^0-9+]/gi, "");
       setPhone(text);
       setPhoneErr("");
     }
@@ -97,17 +99,7 @@ export default function Signup() {
       return false;
     }
 
-    // validating phone
-    function phonenumber(phoneInput) {
-      var phoneno = /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/;
-      if (phoneInput.match(phoneno)) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    if (phonenumber(phone) === false) {
+    if (phone.length < 9) {
       console.log("phoneerr");
       setPhoneErr("Please enter correct phone");
       return false;
@@ -188,7 +180,6 @@ export default function Signup() {
                 className="name"
                 placeholder="Your Name"
                 handleChange={handleChange}
-                pattern="^[a-zA-Z0-9]+$"
               />
               <div className="validationMsg">{nameErr}</div>
               <FormInput
@@ -202,7 +193,7 @@ export default function Signup() {
               />
               <div className="validationMsg">{emailErr}</div>
               <FormInput
-                type="number"
+                type="text"
                 name="mobile"
                 value={phone}
                 id="phone"

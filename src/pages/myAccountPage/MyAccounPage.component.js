@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./myAccountPage.styles.scss";
 import ProfileImage from "../../components/profileImage/ProfileImage.component";
 import Button from "../../components/button/Button.component";
@@ -12,6 +12,9 @@ import OrderDetail from "../OrderDetailPage/OrderDetail.component";
 
 export default function MyAccounPage() {
   const history = useHistory();
+  useEffect(() => {
+    document.title = `My Account | Twistshake`;
+  }, []);
   const logout = () => {
     localStorage.clear();
     history.push("/");
@@ -27,11 +30,11 @@ export default function MyAccounPage() {
             <span className="profile-name">
               {localStorage.getItem("ts-name")}
             </span>
-            <div className="button-logout">
+            {/* <div className="button-logout">
               <Button>
                 <span onClick={logout}>LOGOUT</span>
               </Button>
-            </div>
+            </div> */}
           </div>
 
           <div className="bottom-content">
