@@ -7,9 +7,16 @@ import {
 } from "../action.types";
 
 export const navReducer = (state, action) => {
-  console.log(action.type, action.payload);
   if (action.type === "CART_SIDEBAR") {
     if (action.payload === "active") {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }
+  console.log(state, action);
+  if (action.type == "SET_MOBILE_MENU") {
+    if (action.payload == "active") {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";

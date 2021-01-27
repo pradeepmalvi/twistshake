@@ -13,7 +13,7 @@ import OrderDetail from "../OrderDetailPage/OrderDetail.component";
 export default function MyAccounPage() {
   const history = useHistory();
   useEffect(() => {
-    document.title = `My Account | Twistshake`;
+    document.title = `My Account • For babies and toddlers • Twistshake`;
   }, []);
   const logout = () => {
     localStorage.clear();

@@ -200,7 +200,7 @@ function App() {
 
   // fetching data from product api
   useEffect(() => {
-    document.title = `Home | Twistshake`;
+    document.title = `Home • For babies and toddlers • Twistshake`;
     fetchData();
   }, []);
 

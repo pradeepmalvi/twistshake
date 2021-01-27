@@ -81,21 +81,31 @@ export default function Navbar() {
       } ${navbar ? "navbar active" : "navbar"} `}
     >
       <div className="menu-and-search">
-        <div
-          className="menu-icon"
-          onClick={() => {
-            navStateDispatch({
-              type: SET_MOBILE_MENU,
-              payload: "active",
-            });
-          }}
-        >
-          {navState.menuSidebarMobile === "active" ? (
+        {navState.menuSidebarMobile === "active" ? (
+          <div
+            className="menu-icon"
+            onClick={() => {
+              navStateDispatch({
+                type: SET_MOBILE_MENU,
+                payload: "",
+              });
+            }}
+          >
             <AiOutlineClose />
-          ) : (
+          </div>
+        ) : (
+          <div
+            className="menu-icon"
+            onClick={() => {
+              navStateDispatch({
+                type: SET_MOBILE_MENU,
+                payload: "active",
+              });
+            }}
+          >
             <AiOutlineMenu />
-          )}
-        </div>
+          </div>
+        )}
         <div
           className="search-icon"
           onClick={() => {

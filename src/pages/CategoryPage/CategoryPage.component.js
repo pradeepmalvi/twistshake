@@ -1,20 +1,29 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useReducer } from "react";
 import "./categoryPage.styles.scss";
 
 import { AppContext } from "../../context/Context";
-
+import { productReducer } from "../../context/reducers/productReducer";
 // imports for axios
 // import Axios from "../../axios/axios";
 import requests from "../../axios/requests";
 import axios from "axios";
+import Axios from "../../axios/axios";
 
 import VideoBackground from "../../components/videoBackground/VideoBackground.component";
 import Row from "../../components/row/Row.component";
 import Card from "../../components/card/Card.component";
 import HeighlightBar from "../../components/heighlight-bar/HeighlightBar.component";
 
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import ImageBackground from "../../components/imgBackground/ImageBackground.component";
+
+import { CgShoppingBag } from "react-icons/cg";
+
+const config = {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
+  },
+};
 
 export default function CategoryPage() {
   const { category } = useParams();
@@ -24,11 +33,41 @@ export default function CategoryPage() {
     categoryContent: {},
   });
 
+  const { cartState, cartStateDispatch } = useContext(AppContext);
+  const [productState, productStateDispatch] = useReducer(productReducer, {
+    packageSidebar: "",
+    isPackageCutomisationToggled: false,
+    product: {},
+    CustomisationNestedSidebar: "",
+    galleryitems: [],
+    currentlySelectedInCustomisation: {},
+    customisedProduct: [],
+    displayProduct: [],
+    savedProduct: null,
+  });
+  const [Cart, setCart] = useState([]);
+
   const { appState } = useContext(AppContext);
   let navLinks = "";
   let navLinkObjWithCatID = {};
   let categoryBG = "";
   let categoryID = "";
+
+  const history = useHistory();
+
+  const getCart = () => {
+    Axios.get(
+      `${requests.getCart}/${localStorage.getItem("ts-userid")}`,
+      config
+    ).then((response) => {
+      setCart(response.data.products);
+
+      cartStateDispatch({
+        type: "SET_PRODDECT",
+        payload: response.data.products,
+      });
+    });
+  };
 
   async function fetchCategoryData(id) {
     const categoriesResponse = await axios.get(
@@ -68,7 +107,7 @@ export default function CategoryPage() {
   console.log(categoryProducts);
 
   useEffect(() => {
-    var title = `${category} | Twistshake`;
+    var title = `${category} • For babies and toddlers • Twistshake`;
     title = title.replace("-", " ");
     title = title.replace(/\b\w/g, (l) => l.toUpperCase());
     document.title = title;
@@ -76,7 +115,57 @@ export default function CategoryPage() {
     fetchCategoryData();
   }, [category]);
 
-  console.log(categoryProducts);
+  const addToCart = (productDetails) => {
+    const { product } = productState;
+    const { productSku } = productState;
+    console.log(productDetails);
+
+    if (isProductAlreadyAddToCart(product.id)) {
+      return false;
+    }
+
+    if (!localStorage.getItem("ts-token")) {
+      history.push(`/login/${product.id}`);
+
+      return false;
+    }
+
+    let data = {
+      cart_item: {
+        user_id: localStorage.getItem("ts-userid"),
+        sku_id: productDetails.sku_id,
+        quantity: 1,
+        product_type: "single",
+        product_id: productDetails.id,
+        cart_package_item: [],
+      },
+    };
+
+    Axios.post(`${requests.addToCart}`, data, config).then((response) => {
+      getCart();
+    });
+  };
+
+  const isProductAlreadyAddToCart = (productId) => {
+    for (let i = 0; i < Cart.length; i++) {
+      if (productId === Cart[i].product_id) {
+        updateQuantity(Cart[i].cart_id, Cart[i].quantity + 1);
+        return true;
+      }
+    }
+  };
+
+  const updateQuantity = (cartIndex, updateQuantity) => {
+    console.log(cartIndex, updateQuantity);
+    const data = {
+      quantity: updateQuantity,
+    };
+    Axios.put(`${requests.getCart}/${cartIndex}`, data, config).then(
+      (response) => {
+        getCart();
+      }
+    );
+  };
 
   return categoryProducts.products.length > 0 ? (
     <div className="category-page">
@@ -100,13 +189,20 @@ export default function CategoryPage() {
           <Row title="">
             {categoryProducts.products.length > 0
               ? categoryProducts.products.map((product, index) => (
-                  <Link
-                    to={`/product/${product.type}/${product.id}`}
-                    key={index}
-                    className="product-link"
-                  >
-                    <Card eachProduct={product} />
-                  </Link>
+                  <div key={index} className="product-wrapper">
+                    <Link
+                      className="product-link"
+                      to={`/product/${product.type}/${product.id}`}
+                    >
+                      <Card eachProduct={product} />
+                    </Link>
+                    <div
+                      className="cart-icon"
+                      onClick={addToCart.bind(this, product)}
+                    >
+                      <CgShoppingBag className="icon-svg" />
+                    </div>
+                  </div>
                 ))
               : null}
           </Row>

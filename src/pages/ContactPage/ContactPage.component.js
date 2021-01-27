@@ -19,8 +19,6 @@ export default function Contact() {
     });
   }, []);
 
-  console.log(data);
-
   const [distributorCompany, setDisributorCompany] = useState("");
   const [distributorCountry, setDistributorCountry] = useState("");
   const [distributorName, setDistributorName] = useState("");
@@ -53,7 +51,6 @@ export default function Contact() {
     email: contactEmail,
     message: yourMsg,
   };
-  console.log(contactUsDataToPost);
 
   // handle distributor form submiton
   async function handleDistSubmit(e) {
@@ -73,15 +70,12 @@ export default function Contact() {
     }
   }
 
-  console.log(data);
-
   // handle contact us form data
 
   async function handleContactUsSubmit(e) {
     e.preventDefault();
     const res = await Axios.post(requests.contactUs, contactUsDataToPost);
     if (res.status === 200) {
-      console.log("works fine");
       notifyDistSubmitionSuccess();
 
       setContactEmail("");
@@ -179,6 +173,7 @@ export default function Contact() {
                   value={contactEmail}
                   onChange={(e) => setContactEmail(e.target.value)}
                   required
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 />
               </div>
               <div className="email-form-group common">
@@ -258,6 +253,7 @@ export default function Contact() {
                     value={distributorEmail}
                     onChange={(e) => setDistributorEmail(e.target.value)}
                     required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   />
                 </div>
                 <div className="form-element-group">

@@ -24,7 +24,7 @@ export default function Signup() {
   const [emailErr, setEmailErr] = useState("");
 
   useEffect(() => {
-    document.title = `Sign Up | Twistshake`;
+    document.title = `Sign Up • For babies and toddlers • Twistshake`;
   });
   const notifySucess = () =>
     toast("Sucessfully Registered, use your Email Password to login", {

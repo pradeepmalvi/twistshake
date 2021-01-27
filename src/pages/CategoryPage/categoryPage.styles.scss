@@ -34,14 +34,26 @@
         grid-template-columns: 25% 25% 25% 25%;
       }
 
-      .card {
-        margin-bottom: 4rem;
-      }
-    }
+      // .card {
 
-    .product-link {
-      max-width: 100%;
-      width: 100%;
+      // }
+    }
+    .product-wrapper {
+      margin-bottom: 4rem;
+      position: relative;
+
+      .product-link {
+        max-width: 100%;
+        width: 100%;
+        position: relative;
+      }
+      .cart-icon {
+        position: absolute;
+        bottom: -40px;
+        right: 20px;
+        font-size: 26px;
+        z-index: 100;
+      }
     }
   }
 

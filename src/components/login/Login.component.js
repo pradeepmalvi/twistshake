@@ -36,7 +36,7 @@ export default function Login() {
   const params = useParams();
 
   useEffect(() => {
-    document.title = `Login | Twistshake`;
+    document.title = `Login • For babies and toddlers • Twistshake`;
   });
 
   const validateEmail = (email) => {

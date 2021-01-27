@@ -40,7 +40,7 @@ function CheckOutPage() {
     });
 
   useEffect(() => {
-    document.title = `Checkout | Twistshake`;
+    document.title = `Checkout • For babies and toddlers • Twistshake`;
     window.scrollTo(0, 0);
     getCart();
     getCities();
