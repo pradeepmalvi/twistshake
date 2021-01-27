@@ -73,6 +73,8 @@ export default function Contact() {
     }
   }
 
+  console.log(data);
+
   // handle contact us form data
 
   async function handleContactUsSubmit(e) {
@@ -123,7 +125,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="form">
+          <div className="form" id={`para1`}>
             <h3>contact us</h3>
             <p>
               We are happy to hear from you and will get back to you as soon as
@@ -200,7 +202,7 @@ export default function Contact() {
             </form>
           </div>
           <div className="form-1">
-            <h3 className="form-1-title" id={`para1`}>
+            <h3 className="form-1-title" id={`para2`}>
               Would you like to become a distributor?
             </h3>
             <p className="sub-title">
