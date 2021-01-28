@@ -49,12 +49,15 @@
       white-space: nowrap;
       overflow: hidden;
       line-height: 25px;
-      font-weight: 400;
+      font-weight: 600;
+      color: #202020;
     }
 
     .price {
       display: flex;
       justify-content: center;
+      font-weight: 600;
+      color: #202020;
 
       .previous {
         text-align: center;

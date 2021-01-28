@@ -1,6 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./navbar.styles.scss";
 
+// react svg
+import { ReactSVG } from "react-svg";
+
 // call custom hook useViewPort
 import useViewPort from "../../custom-hooks/useViewPort";
 

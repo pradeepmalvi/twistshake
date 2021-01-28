@@ -253,6 +253,9 @@
 
 .counter-cart {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   left: 30px;
   top: -10px;
   background-color: #e86464;
@@ -261,5 +264,5 @@
   height: 20px;
   border-radius: 30px;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
 }
