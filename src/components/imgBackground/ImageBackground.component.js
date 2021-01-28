@@ -1,7 +1,8 @@
 import React from "react";
 import "./imageBackground.styles.scss";
 
-export default function ImageBackground({ imgSrc, title = "" }) {
+export default function ImageBackground({ imgSrc, title = "", content = "" }) {
+  console.log(content);
   return (
     <div className="image-background">
       <div
@@ -10,7 +11,7 @@ export default function ImageBackground({ imgSrc, title = "" }) {
       >
         <div className="text-content">
           <h2 className={"title"}>{title}</h2>
-          {/* <p>{subtitle}</p> */}
+          <p>{content}</p>
         </div>
       </div>
     </div>

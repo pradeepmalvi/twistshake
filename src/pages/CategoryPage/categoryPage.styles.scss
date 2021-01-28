@@ -1,5 +1,6 @@
 .category-page {
   margin-bottom: 3rem;
+
   .videobg-container {
     position: relative;
     height: 73vh;
@@ -33,10 +34,6 @@
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
       }
-
-      // .card {
-
-      // }
     }
     .product-wrapper {
       margin-bottom: 4rem;
@@ -59,7 +56,7 @@
 
   .text-content {
     max-width: 1360px;
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     text-align: center;
     padding: 3rem 0;
@@ -70,7 +67,7 @@
     }
 
     .description-text {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: #202020;
     }
   }

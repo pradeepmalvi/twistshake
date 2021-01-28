@@ -14,13 +14,23 @@
   }
 }
 
+@media only screen and (max-width: 560px) {
+  .App {
+    .category-page {
+      .text-content {
+        // left: 50% !important;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 972px) {
   .App {
     .category-page {
       .text-content {
         margin-top: 3rem;
+
         .title {
-          // white-space: nowrap;
           font-size: 2rem !important;
         }
       }

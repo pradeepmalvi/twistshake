@@ -1,4 +1,5 @@
 .heighlight-bar {
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   padding: 0.7rem 0rem;
@@ -14,8 +15,23 @@
 
     .text {
       font-size: 0.85rem;
-      font-weight: 500;
+      font-weight: 600;
     }
+
+    .icon-container {
+      display: flex;
+
+      .icon {
+        color: #202020;
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+        stroke-width: 0.1rem;
+      }
+    }
+  }
+
+  .mobilebar {
+    display: flex;
 
     .icon-container {
       display: flex;

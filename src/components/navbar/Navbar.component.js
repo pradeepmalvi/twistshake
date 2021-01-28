@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./navbar.styles.scss";
 
+// react svg
+import { ReactSVG } from "react-svg";
+import Logo from "../../assets/icons/twistlogo.svg";
+
 // call custom hook useViewPort
 import useViewPort from "../../custom-hooks/useViewPort";
 
@@ -125,7 +129,10 @@ export default function Navbar() {
       </div>
       <div className="logo">
         <h3 className="logo-text">
-          <Link to="/">TWISTSHAKE</Link>
+          <Link to="/">
+            {" "}
+            <ReactSVG src={Logo} />
+          </Link>
         </h3>
       </div>
       <div className="action">
@@ -163,9 +170,7 @@ export default function Navbar() {
             <li className="link">
               <Link to="/customer-service/faq">FAQ</Link>
             </li>
-            {/* <li className="link">
-              <Link to="/customer-service/contact">Twistshake world</Link>
-            </li> */}
+
             <li className="link">
               <Link to="/customer-service/ambassador">Ambassador</Link>
             </li>
@@ -179,7 +184,7 @@ export default function Navbar() {
       <div className="nav-items">
         <div className="logo">
           <Link to="/" className="link">
-            <h3>Twistshake</h3>
+            <ReactSVG src={Logo} />
           </Link>
         </div>
         <div className="nav-links">
