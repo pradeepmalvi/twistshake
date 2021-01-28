@@ -117,13 +117,14 @@ export default function CategoryPage() {
     const { product } = productState;
     const { productSku } = productState;
     console.log(productDetails);
+    console.log(productState);
 
-    if (isProductAlreadyAddToCart(product.id)) {
+    if (isProductAlreadyAddToCart(productDetails.id)) {
       return false;
     }
 
     if (!localStorage.getItem("ts-token")) {
-      history.push(`/login/${product.id}`);
+      history.push(`/login/${productDetails.id}`);
 
       return false;
     }
@@ -195,12 +196,46 @@ export default function CategoryPage() {
                     >
                       <Card eachProduct={product} />
                     </Link>
-                    <div
-                      className="cart-icon"
-                      onClick={addToCart.bind(this, product)}
-                    >
-                      <CgShoppingBag className="icon-svg" />
-                    </div>
+                    {product.type === "single" ? (
+                      <>
+                        <Link
+                          className="product-link"
+                          to={`/product/${product.type}/${product.id}`}
+                        >
+                          {product.product_color_image &&
+                          product.product_color_image[0].length > 0 ? (
+                            <div className="color-pallets">
+                              {product.product_color_image[0].map(
+                                (color, key) =>
+                                  key < 3 ? (
+                                    <span
+                                      key={key}
+                                      className="color"
+                                      style={{
+                                        background: `${color.color_code}`,
+                                      }}
+                                    ></span>
+                                  ) : key == 3 ? (
+                                    <span className="plus"> +</span>
+                                  ) : (
+                                    ""
+                                  )
+                              )}
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </Link>
+                        <div
+                          className="cart-icon"
+                          onClick={addToCart.bind(this, product)}
+                        >
+                          <CgShoppingBag className="icon-svg" />
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 ))
               : null}
