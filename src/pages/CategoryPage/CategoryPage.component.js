@@ -104,8 +104,6 @@ export default function CategoryPage() {
     });
   }
 
-  console.log(categoryProducts);
-
   useEffect(() => {
     var title = `${category} • For babies and toddlers • Twistshake`;
     title = title.replace("-", " ");
@@ -180,6 +178,7 @@ export default function CategoryPage() {
         <ImageBackground
           imgSrc={`${categoryProducts.categoryBG}`}
           title={category}
+          content={categoryProducts.categoryContent.content}
         />
       ) : null}
 

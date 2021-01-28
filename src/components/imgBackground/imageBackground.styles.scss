@@ -14,18 +14,21 @@
 
     .text-content {
       position: absolute;
-      text-align: center;
-      left: 50%;
+      text-align: left;
+      margin-left: 2rem;
       top: 50%;
-      background-color: #20202063;
-      transform: translateX(-50%);
+      // transform: translateX(-50%);
 
       .title {
         font-size: 3rem;
         color: #fff;
-        font-weight: 400;
+        font-weight: 600;
         text-transform: capitalize;
         white-space: nowrap;
+      }
+
+      p {
+        color: #fff;
       }
     }
   }
