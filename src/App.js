@@ -1,4 +1,4 @@
-import { Fragment, useReducer, useEffect } from "react";
+import { Fragment, useReducer, useEffect, useState } from "react";
 
 import "./App.css";
 import "./layout.styles.scss";
@@ -64,12 +64,13 @@ import Login from "./components/login/Login.component";
 import Signup from "./components/signup/Signup.component";
 import MobileSearchSidebar from "./components/mobile-search-sidebar/MobileSearchSidebar.component";
 import MobileMenuSidebar from "./components/mobile-menu-sidebar/MobileMenuSidebar.component";
-import HeroBackgroundImg from "./components/imgBackgroundHero/HeroBackgroundImg.component";
+import HeroBackground from "./components/hero-background/HeroBackground.component";
 import OrderSuccessful from "./pages/OrderSuccessfulPage/OrderSuccessful.component";
 import OrderDetail from "./pages/OrderDetailPage/OrderDetail.component";
 
 function App() {
   const { width } = useViewPort();
+  const [heroBgData, setHeroBgData] = useState([]);
 
   const [appState, appStateDispatch] = useReducer(appReducer, {
     cartProductsToSendInDB: [],
@@ -140,7 +141,6 @@ function App() {
       "http://twistshake.ewtlive.in/admin/api/show-product-by-category/14/2";
     const fetchCat4 =
       "http://twistshake.ewtlive.in/admin/api/show-product-by-category/22/2";
-
     const fetchNavLinks =
       "http://twistshake.ewtlive.in/admin/api/product-category";
 
@@ -230,31 +230,81 @@ function App() {
                     >
                       {/* header starts */}
                       <Header>
-                        {/* <VideoBackground>
-                          <h2 className="heading">Black Week</h2>
-                          <Link to="/">
-                            <Button
-                              onClick={() => {
-                                console.log("clicked");
-                              }}
-                            >
-                              <span>Buy Now</span>
-                            </Button>
-                          </Link>
-                        </VideoBackground> */}
                         {appState.navLinks.length > 0 ? (
-                          <HeroBackgroundImg
-                            imgSrc={`${
+                          <HeroBackground
+                            src={`${
                               appState.navLinks.filter(
                                 (eachObj) =>
                                   eachObj.urlString.toLowerCase() ===
                                   "home".toLowerCase()
                               )[0].categoryBG
                             }`}
-                            text=""
+                            type={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].fileType
+                            }`}
+                            videoBtnLink={`/pages/${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].categoryPage
+                            }`}
+                            homeBgContent={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].heroBgContent
+                            }`}
+                            heroBgTitle={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].heroBgTitle
+                            }`}
+                            heroBgContentColor={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].heroBgContentColor
+                            }`}
+                            heroBgTitleColor={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].heroBgTitleColor
+                            }`}
+                            btnColor={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].btnBGColor
+                            }`}
+                            btnHoverColor={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].btnHoverColor
+                            }`}
+                            btnTextColor={`${
+                              appState.navLinks.filter(
+                                (eachObj) =>
+                                  eachObj.urlString.toLowerCase() ===
+                                  "home".toLowerCase()
+                              )[0].btnTextColor
+                            }`}
                           />
                         ) : (
-                          <div className="bg-loading"> </div>
+                          <div className="bg-loading"></div>
                         )}
                       </Header>
                       {/* header ends */}
