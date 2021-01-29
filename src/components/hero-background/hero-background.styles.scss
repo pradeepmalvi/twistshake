@@ -1,0 +1,75 @@
+.hero-img-bg {
+  // image bg styles
+  .bg-container {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+  }
+
+  .text-content {
+    position: absolute;
+    text-align: left;
+    margin-left: 2rem;
+    top: 30%;
+
+    .title {
+      font-size: 3rem;
+      color: #202020;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    p {
+      color: #202020;
+      width: 80%;
+      font-size: 1.1rem;
+    }
+  }
+  /* video bg styles */
+  .videobg-container {
+    // position: fixed;
+    color: #f1f1f1;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
+
+    /* Style the video: 100% width and height to cover the entire window */
+    .bgVideo {
+      width: 100vw;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .content {
+      position: absolute;
+      left: 4rem;
+      bottom: 5rem;
+      z-index: 100;
+
+      .mini-heading {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #202020;
+        text-transform: uppercase;
+      }
+
+      .heading {
+        margin-top: 2rem;
+        margin-bottom: 2.8rem;
+        font-size: 3.3rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        color: #202020;
+      }
+
+      .btn {
+        background-color: #202020;
+        color: #f1f1f1;
+      }
+    }
+  }
+}

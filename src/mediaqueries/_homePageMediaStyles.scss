@@ -377,6 +377,18 @@
   }
 }
 
+@media only screen and (max-width: 1000px) {
+  .App {
+    .header {
+      .videobg-container {
+        .content {
+          top: 9rem;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .App {
     .twistshake-tableware {

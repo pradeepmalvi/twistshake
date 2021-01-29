@@ -18,6 +18,7 @@ import { Link, useParams, useHistory } from "react-router-dom";
 import ImageBackground from "../../components/imgBackground/ImageBackground.component";
 
 import { CgShoppingBag } from "react-icons/cg";
+import HeroBackground from "../../components/hero-background/HeroBackground.component";
 
 const config = {
   headers: {
@@ -80,7 +81,6 @@ export default function CategoryPage() {
       }
     });
 
-    console.log(navLinks);
     // categories ids extraction
     navLinks.forEach((eachLinkObj) => {
       navLinkObjWithCatID[eachLinkObj.urlString] = eachLinkObj.id;
@@ -116,8 +116,6 @@ export default function CategoryPage() {
   const addToCart = (productDetails) => {
     const { product } = productState;
     const { productSku } = productState;
-    console.log(productDetails);
-    console.log(productState);
 
     if (isProductAlreadyAddToCart(productDetails.id)) {
       return false;
@@ -155,7 +153,6 @@ export default function CategoryPage() {
   };
 
   const updateQuantity = (cartIndex, updateQuantity) => {
-    console.log(cartIndex, updateQuantity);
     const data = {
       quantity: updateQuantity,
     };
@@ -168,20 +165,15 @@ export default function CategoryPage() {
 
   return categoryProducts.products.length > 0 ? (
     <div className="category-page">
-      {/* <VideoBackground>
-        <h2 className="heading">Black Week</h2>
-        <p className="heading-description">
-          Black Week at Twistshake has started. Enjoy 50% off sitewide and get
-          free shipping on all packages!
-        </p>
-      </VideoBackground> */}
       {categoryProducts.products.length > 0 ? (
-        <ImageBackground
-          imgSrc={`${categoryProducts.categoryBG}`}
-          title={category}
-          content={categoryProducts.categoryContent.content}
+        <HeroBackground
+          type={categoryProducts.categoryContent.fileType}
+          src={categoryProducts.categoryBG}
+          homeBgContent={categoryProducts.categoryContent.heroBgContent}
+          heroBgTitle={categoryProducts.categoryContent.categoryTitle}
         />
       ) : null}
+      {console.log(categoryProducts)}
 
       <HeighlightBar />
       <div className="content">
@@ -242,9 +234,11 @@ export default function CategoryPage() {
           </Row>
         </div>
         <div className="text-content">
-          <h2 className="title">{categoryProducts.categoryContent.title}</h2>
+          <h2 className="title">
+            {categoryProducts.categoryContent.categoryTitle}
+          </h2>
           <p className="description-text">
-            {categoryProducts.categoryContent.content}
+            {categoryProducts.categoryContent.categoryContent}
           </p>
         </div>
       </div>
