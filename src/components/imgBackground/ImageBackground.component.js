@@ -1,7 +1,7 @@
 import React from "react";
 import "./imageBackground.styles.scss";
 
-export default function ImageBackground({ imgSrc, title = "", content = "" }) {
+export default function ImageBackground({ imgSrc, title = "", content  }) {
   console.log(content);
   return (
     <div className="image-background">

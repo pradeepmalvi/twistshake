@@ -19,7 +19,6 @@ import ImageBackground from "../../components/imgBackground/ImageBackground.comp
 
 import { CgShoppingBag } from "react-icons/cg";
 import HeroBackground from "../../components/hero-background/HeroBackground.component";
-
 const config = {
   headers: {
     Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
@@ -200,13 +199,20 @@ export default function CategoryPage() {
                               {product.product_color_image[0].map(
                                 (color, key) =>
                                   key < 3 ? (
-                                    <span
-                                      key={key}
-                                      className="color"
-                                      style={{
-                                        background: `${color.color_code}`,
-                                      }}
-                                    ></span>
+                                    color.color_code === "" ? (
+                                      <img
+                                        src={color.color_image}
+                                        className="color"
+                                      />
+                                    ) : (
+                                      <span
+                                        key={key}
+                                        className="color"
+                                        style={{
+                                          background: `${color.color_code}`,
+                                        }}
+                                      ></span>
+                                    )
                                   ) : key == 3 ? (
                                     <span className="plus"> +</span>
                                   ) : (

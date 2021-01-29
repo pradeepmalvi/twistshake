@@ -24,6 +24,7 @@
     "react-svg": "^11.2.3",
     "react-text-loop": "^2.3.0",
     "react-toastify": "^6.2.0",
+    "react-video-cover": "^1.2.2",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^0.2.4"
   },

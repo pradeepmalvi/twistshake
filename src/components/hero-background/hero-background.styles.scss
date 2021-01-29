@@ -40,7 +40,8 @@
     .bgVideo {
       width: 100vw;
       min-width: 100%;
-      min-height: 100%;
+      height: 500px;
+      object-fit: cover;
     }
 
     .content {
@@ -69,6 +70,52 @@
       .btn {
         background-color: #202020;
         color: #f1f1f1;
+      }
+    }
+  }
+
+  .mobilebg-container {
+    // position: fixed;
+    color: #f1f1f1;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0;
+
+    /* Style the video: 100% width and height to cover the entire window */
+    // .bgVideo {
+    //   width: 100vw;
+    //   min-width: 100%;
+    //   min-height: 100%;
+    // }
+
+    .content {
+      position: absolute;
+      left: 4rem;
+      bottom: 5rem;
+      z-index: 100;
+
+      .mini-heading {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #f1f1f1;
+        text-transform: uppercase;
+      }
+
+      .heading {
+        margin-top: 2rem;
+        margin-bottom: 2.8rem;
+        font-size: 3.3rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        color: #f1f1f1;
+      }
+
+      .btn {
+        background-color: #f1f1f1;
+        color: #202020;
       }
     }
   }

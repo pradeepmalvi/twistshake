@@ -466,11 +466,15 @@ function CheckOutPage() {
                   </li>
                   <li className="list-item">
                     <span className="key">Delivery</span>
-                    <span className="value">{shipping_charge} AED</span>
+                    <span className="value">
+                      {calculateTotal() !== 0 ? shipping_charge : 0} AED
+                    </span>
                   </li>
                   <li className="list-item">
                     <span className="key">Total</span>
-                    <span className="value">{calculateGrandTotal()} AED</span>
+                    <span className="value">
+                      {calculateTotal() !== 0 ? calculateGrandTotal() : 0} AED
+                    </span>
                   </li>
                   <FormInput
                     type="submit"
