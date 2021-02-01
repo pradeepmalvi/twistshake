@@ -11,35 +11,47 @@ export default function CustomProductCard({
   customizationDone,
   savedProduct,
   productIndex,
-  active
+  active,
 }) {
   const checkCustomizationStatus = () => {
     let flag = false;
     if (savedProduct) {
-      console.log('saved Product', savedProduct)
-      savedProduct.map(eachItem => {
+      savedProduct.map((eachItem) => {
         if (eachItem.productID === id && eachItem.index === productIndex) {
           flag = true;
         }
-      })
+      });
     }
-    return flag
-  }
+    return flag;
+  };
   return (
     <div className="custom-product-card" id={id} onClick={handleOnClick}>
-      {
-        edit && checkCustomizationStatus() && 
-          <div className="check_customization_icon">
-            <FaCheck className="icon" />
-          </div>
-      }
-      {edit && !checkCustomizationStatus() &&
+      {edit && checkCustomizationStatus() && (
+        <div className="check_customization_icon">
+          <FaCheck className="icon" />
+        </div>
+      )}
+      {edit && !checkCustomizationStatus() && (
         <div className="check_customization_icon">
           <FaPencilAlt className="icon" />
         </div>
-      }
-      <div className={active?"check-activation-status active":"check-activation-status"}>
-        <div id={id} className={!edit?"product-img":checkCustomizationStatus()?"product-img":"product-img disabled-img"} style={{ backgroundImage: `url( ${img} )` }}>
+      )}
+      <div
+        className={
+          active ? "check-activation-status active" : "check-activation-status"
+        }
+      >
+        <div
+          id={id}
+          className={
+            !edit
+              ? "product-img"
+              : checkCustomizationStatus()
+              ? "product-img"
+              : "product-img disabled-img"
+          }
+          style={{ backgroundImage: `url( ${img} )` }}
+        >
           {children}
         </div>
       </div>

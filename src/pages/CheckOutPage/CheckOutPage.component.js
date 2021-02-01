@@ -65,7 +65,6 @@ function CheckOutPage() {
   const getCities = () => {
     Axios.get(`${requests.getCities}`, config).then((response) => {
       setCities(response.data.shipping);
-      console.log(response.data.shipping);
     });
   };
 

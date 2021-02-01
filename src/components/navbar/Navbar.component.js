@@ -4,6 +4,7 @@ import "./navbar.styles.scss";
 // react svg
 import { ReactSVG } from "react-svg";
 import Logo from "../../assets/icons/twistlogo.svg";
+import MagnifyingGlass from "../../assets/icons/Maginfying Glass Search.svg";
 
 // call custom hook useViewPort
 import useViewPort from "../../custom-hooks/useViewPort";
@@ -233,7 +234,8 @@ export default function Navbar() {
                 navStateDispatch({ type: SEARCH_SHOW, payload: "active" });
               }}
             >
-              <BiSearch className="icon-svg" />
+              {/* <BiSearch className="icon-svg" /> */}
+              {/* <ReactSVG src={MagnifyingGlass} */}
             </div>
           </div>
           <div className="icon cart">
@@ -253,7 +255,6 @@ export default function Navbar() {
                 bar === "" ? setBar("hidden") : setBar("");
               }}
             >
-              {" "}
               <AiOutlineMenu className="icon-svg" />
             </div>
           </div>

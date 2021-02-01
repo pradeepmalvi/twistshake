@@ -133,8 +133,6 @@ export default function Signup() {
         c_password: confirmPassword,
       };
 
-      console.log(data, "data test");
-
       Axios.post(requests.createAccount, data)
         .then((res) => {
           if (res.request.status === 200) {

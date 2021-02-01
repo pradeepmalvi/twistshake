@@ -13,11 +13,18 @@ code {
 } */
 
 @font-face {
-  font-family: "Avenir";
-  src: url("./fonts/AvenirNextLTPro-Regular.otf") format("embedded-opentype"),
-    url("./fonts/AvenirNextLTPro-Regular.otf") format("woff"),
-    url("./fonts/AvenirNextLTPro-It.otf") format("truetype"),
-    url("./fonts/AvenirNextLTPro-Bold.otf") format("svg");
+  font-family: "AvenirNext";
+  src: url("./fonts/AvenirNextLTPro-Bold.otf") format("embedded-opentype"),
+    url("./fonts/AvenirNextLTPro-Regular.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-BoldCn.otf") format("woff"),
+    url("./fonts/AvenirNextLTPro-BoldIt.otf") format("truetype"),
+    url("./fonts/AvenirNextLTPro-Demi.otf") format("svg"),
+    url("./fonts/AvenirNextLTPro-Heavy.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-It.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-Medium.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-UltLt.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-UltLtCn.otf") format("otf"),
+    url("./fonts/AvenirNextLTPro-UltLtCnIt.otf") format("otf");
 }
 .body_overlay_active {
   overflow: hidden;

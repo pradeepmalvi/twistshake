@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./selectedProductOption.styles.scss";
 
 import { ProductContext } from "../../context/Context";
@@ -9,10 +9,8 @@ import Button from "../button/Button.component";
 
 export default function SelectedProductCustomisation() {
   const { productState, productStateDispatch } = useContext(ProductContext);
-  useEffect(()=>{
-    
-  },[productState]);
-  const [selectedItem,setSelectedItem] = useState({})
+  useEffect(() => {}, [productState]);
+  const [selectedItem, setSelectedItem] = useState({});
 
   console.log(productState);
   return (
@@ -34,8 +32,11 @@ export default function SelectedProductCustomisation() {
                   name={eachAttr.attribute_value.map((eachValue, index) => (
                     <span key={index}>{`${eachValue}  `}</span>
                   ))}
-                  onClick={(e)=>{
-                    setSelectedItem(productState.currentlySelectedInCustomisation.product_attribute[e.target.id]);
+                  onClick={(e) => {
+                    setSelectedItem(
+                      productState.currentlySelectedInCustomisation
+                        .product_attribute[e.target.id]
+                    );
                   }}
                 ></CustomProductCard>
               )
