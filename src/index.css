@@ -15,8 +15,16 @@ code {
 @font-face {
   font-family: "AvenirNext";
   src: url("./fonts/AvenirNextLTPro-Bold.otf") format("embedded-opentype"),
-    url("./fonts/AvenirNextLTPro-Regular.otf") format("otf"),
-    url("./fonts/AvenirNextLTPro-BoldCn.otf") format("woff"),
+    url("./fonts/AvenirNextLTPro-Regular.otf"),
+    url("./fonts/AvenirNextLTPro-Medium.otf") format("otf");
+}
+
+.body_overlay_active {
+  overflow: hidden;
+}
+
+/* 
+  url("./fonts/AvenirNextLTPro-BoldCn.otf") format("woff"),
     url("./fonts/AvenirNextLTPro-BoldIt.otf") format("truetype"),
     url("./fonts/AvenirNextLTPro-Demi.otf") format("svg"),
     url("./fonts/AvenirNextLTPro-Heavy.otf") format("otf"),
@@ -24,8 +32,4 @@ code {
     url("./fonts/AvenirNextLTPro-Medium.otf") format("otf"),
     url("./fonts/AvenirNextLTPro-UltLt.otf") format("otf"),
     url("./fonts/AvenirNextLTPro-UltLtCn.otf") format("otf"),
-    url("./fonts/AvenirNextLTPro-UltLtCnIt.otf") format("otf");
-}
-.body_overlay_active {
-  overflow: hidden;
-}
+    url("./fonts/AvenirNextLTPro-UltLtCnIt.otf") format("otf"); */

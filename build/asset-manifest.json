@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "./static/css/main.63d6aaea.chunk.css",
-    "main.js": "./static/js/main.d699af9f.chunk.js",
-    "main.js.map": "./static/js/main.d699af9f.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.09294e93.js",
-    "runtime-main.js.map": "./static/js/runtime-main.09294e93.js.map",
-    "static/css/2.382b4914.chunk.css": "./static/css/2.382b4914.chunk.css",
-    "static/js/2.f8a96665.chunk.js": "./static/js/2.f8a96665.chunk.js",
-    "static/js/2.f8a96665.chunk.js.map": "./static/js/2.f8a96665.chunk.js.map",
-    "index.html": "./index.html",
-    "static/css/2.382b4914.chunk.css.map": "./static/css/2.382b4914.chunk.css.map",
-    "static/css/main.63d6aaea.chunk.css.map": "./static/css/main.63d6aaea.chunk.css.map",
-    "static/js/2.f8a96665.chunk.js.LICENSE.txt": "./static/js/2.f8a96665.chunk.js.LICENSE.txt",
-    "static/media/index.css": "./static/media/AvenirNextLTPro-UltLtCnIt.8b3d7dda.otf",
-    "static/media/Maginfying Glass Search.c7fd54e7.svg": "./static/media/Maginfying Glass Search.c7fd54e7.svg",
-    "static/media/slick-theme.css": "./static/media/slick.c94f7671.ttf",
-    "static/media/spinnerBtn.4ff2b3a2.png": "./static/media/spinnerBtn.4ff2b3a2.png",
-    "static/media/twistlogo.6989c1d5.svg": "./static/media/twistlogo.6989c1d5.svg"
+    "main.css": "/static/css/main.0add88b5.chunk.css",
+    "main.js": "/static/js/main.c14b3fbd.chunk.js",
+    "main.js.map": "/static/js/main.c14b3fbd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.40570cd2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.40570cd2.js.map",
+    "static/css/2.c38a1308.chunk.css": "/static/css/2.c38a1308.chunk.css",
+    "static/js/2.23e98cc0.chunk.js": "/static/js/2.23e98cc0.chunk.js",
+    "static/js/2.23e98cc0.chunk.js.map": "/static/js/2.23e98cc0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.c38a1308.chunk.css.map": "/static/css/2.c38a1308.chunk.css.map",
+    "static/css/main.0add88b5.chunk.css.map": "/static/css/main.0add88b5.chunk.css.map",
+    "static/js/2.23e98cc0.chunk.js.LICENSE.txt": "/static/js/2.23e98cc0.chunk.js.LICENSE.txt",
+    "static/media/123456.06ccdc37.svg": "/static/media/123456.06ccdc37.svg",
+    "static/media/index.css": "/static/media/AvenirNextLTPro-Regular.aa6a7fa7.otf",
+    "static/media/Maginfying Glass Search.c7fd54e7.svg": "/static/media/Maginfying Glass Search.c7fd54e7.svg",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf",
+    "static/media/spinnerBtn.4ff2b3a2.png": "/static/media/spinnerBtn.4ff2b3a2.png",
+    "static/media/twistlogo.6989c1d5.svg": "/static/media/twistlogo.6989c1d5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.09294e93.js",
-    "static/css/2.382b4914.chunk.css",
-    "static/js/2.f8a96665.chunk.js",
-    "static/css/main.63d6aaea.chunk.css",
-    "static/js/main.d699af9f.chunk.js"
+    "static/js/runtime-main.40570cd2.js",
+    "static/css/2.c38a1308.chunk.css",
+    "static/js/2.23e98cc0.chunk.js",
+    "static/css/main.0add88b5.chunk.css",
+    "static/js/main.c14b3fbd.chunk.js"
   ]
 }

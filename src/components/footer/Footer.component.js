@@ -77,8 +77,7 @@ export default function Footer() {
       <div className="content">
         <div className="left-content">
           <div className="heading-text">
-            SIGN UP FOR OUR NEWSLETTER AND LEARN MORE ABOUT OUR EXCLUSIVE OFFERS
-            AND PRODUCTS!
+            Sign up for our newsletter and get 50% + 5% discount!
           </div>
           <div className="form">
             <div className="input">
