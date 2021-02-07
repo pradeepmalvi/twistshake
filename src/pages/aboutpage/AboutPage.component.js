@@ -14,7 +14,6 @@ export default function AboutPage() {
   const [data, setData] = useState([]);
   useEffect(() => {
     Axios.get(requests.pages).then((res) => {
-      console.log(res.data.pages);
       setData(res.data.pages["about-us"]);
     });
   }, []);

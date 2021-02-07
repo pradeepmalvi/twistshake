@@ -69,7 +69,6 @@ export default function ShopingCart() {
   };
 
   const updateQuantity = (cartIndex, updateQuantity) => {
-    console.log(cartIndex, updateQuantity);
     const data = {
       quantity: updateQuantity,
     };

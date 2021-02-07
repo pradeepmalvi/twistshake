@@ -19,11 +19,6 @@ import {
 } from "../../context/action.types";
 import { ProductContext } from "../../context/Context";
 
-// import OwlCarousel from "react-owl-carousel";
-// import "owl.carousel/dist/assets/owl.carousel.css";
-// import "owl.carousel/dist/assets/owl.theme.default.css";
-// import { Link } from "react-router-dom";
-
 export default function ImagesSlider() {
   const [images, setImages] = useState([]);
 
@@ -73,7 +68,6 @@ export default function ImagesSlider() {
   function fetchSliderImages(id) {
     const request = Axios.get(`${requests.getProductSliderMain}${id}`).then(
       (response) => {
-        console.log(response);
         productStateDispatch({
           type: SET_MAIN_PRODUCT_SLIDER,
           payload: response.data,

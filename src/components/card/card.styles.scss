@@ -44,13 +44,19 @@
       text-align: center;
       font-size: 1rem;
       margin-top: 0.6rem;
-      margin-bottom: 1.3rem;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
       line-height: 25px;
       font-weight: 600;
       color: #202020;
+    }
+
+    .attribute-details {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+      font-weight: 100;
     }
 
     .price {

@@ -12,10 +12,10 @@
       .heading-text {
         text-transform: uppercase;
         color: #9a9a9a;
-        line-height: 1rem;
-        font-size: 0.9rem;
-        font-weight: 400;
-        margin-bottom: 1.5rem;
+        line-height: 1.5;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
       }
 
       .form {
@@ -34,6 +34,7 @@
 
           &::placeholder {
             color: #fff;
+            font-size: 1rem;
           }
         }
 
@@ -54,6 +55,8 @@
           .label-text {
             font-size: 0.8rem;
             color: #9a9a9a;
+            font-weight: 600;
+            text-transform: capitalize;
 
             .privacy-policy-link {
               text-decoration: underline !important;

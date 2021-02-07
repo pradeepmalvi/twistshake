@@ -35,7 +35,6 @@ export default function HeroBackground({
     };
   }, [widthMobileDisable]);
 
-  console.log(heroBgTitleColor);
   return (
     <div className="hero-img-bg">
       {type.toLowerCase() === "image" ? (
@@ -63,6 +62,7 @@ export default function HeroBackground({
             <h1 className="heading" style={{ color: heroBgContentColor }}>
               {homeBgContent}
             </h1>
+
             <Link to={videoBtnLink}>
               <button
                 className="btn"

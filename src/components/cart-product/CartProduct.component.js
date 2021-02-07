@@ -32,7 +32,7 @@ export default function CartProduct({
   };
   const onRemoveQuantity = (quantity) => {
     // setProductQuantity(quantity);
-    console.log(quantity);
+
     if (quantity === 0) {
       removeCart(cartIndex);
     }

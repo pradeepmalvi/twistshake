@@ -53,7 +53,6 @@ export const navReducer = (state, action) => {
       };
 
     case DISABLE_MOBILE_MENU:
-      console.log("enter");
       return {
         ...state,
         menuSidebarMobile: action.payload,

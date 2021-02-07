@@ -1,0 +1,46 @@
+@media only screen and (max-width: 600px) {
+  .App {
+    .order-details-header {
+      flex-direction: column;
+
+      h4,
+      a {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .right-section {
+      .order-item {
+        .content-wrapper {
+          h4 {
+            font-size: 0.8rem;
+          }
+          margin-left: 0.5rem;
+        }
+
+        .price-wrapper {
+          font-size: 0.8rem !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .App {
+    .order-detail-wrapper {
+      .order-details-bottom {
+        flex-direction: column-reverse;
+
+        .right-section {
+          width: 100%;
+        }
+
+        .left-section {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
