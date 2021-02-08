@@ -90,7 +90,7 @@ export default function CategoryPage() {
     // getting category bg
     categoryBG = navLinks.filter((eachObj) => eachObj.urlString === category);
     categoryBG = categoryBG[0].categoryBG;
-
+    console.log(categoryID, "data geting");
     const categoryData = await axios.get(
       `http://twistshake.ewtlive.in/admin/api/show-product-by-category/${categoryID}/8`
     );

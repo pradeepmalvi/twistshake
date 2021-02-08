@@ -10,6 +10,8 @@ export default function Card(props) {
 
   const [imgCounter, setImgCounter] = useState(0);
 
+  console.log(eachProduct, "card data");
+
   return (
     eachProduct !== undefined && (
       <div className="card">

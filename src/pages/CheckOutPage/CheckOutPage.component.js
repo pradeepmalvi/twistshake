@@ -358,7 +358,7 @@ function CheckOutPage() {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Choose your city</option>
+                      <option value="">Choose your Emirate</option>
                       {cities &&
                         cities.length > 0 &&
                         cities.map((city) => (
