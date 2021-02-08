@@ -155,7 +155,13 @@ export default function Navbar() {
           }}
         >
           <div className="counter-cart">
-            {cartState.cartProduct !== null ? cartState.cartProduct.length : 0}
+            {localStorage.getItem("ts-token")
+              ? cartState.cartProduct !== null
+                ? cartState.cartProduct.length
+                : 0
+              : localStorage.getItem("ts-cart")
+              ? JSON.parse(localStorage.getItem("ts-cart")).length
+              : 0}
           </div>
           <CgShoppingBag />
         </div>
@@ -249,8 +255,12 @@ export default function Navbar() {
           <div className="icon cart">
             <div className="icon-link" onClick={cartSidebarToggle}>
               <div className="counter-cart">
-                {cartState.cartProduct !== null
-                  ? cartState.cartProduct.length
+                {localStorage.getItem("ts-token")
+                  ? cartState.cartProduct !== null
+                    ? cartState.cartProduct.length
+                    : 0
+                  : localStorage.getItem("ts-cart")
+                  ? JSON.parse(localStorage.getItem("ts-cart")).length
                   : 0}
               </div>{" "}
               <CgShoppingBag className="icon-svg" />

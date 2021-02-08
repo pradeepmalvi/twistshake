@@ -123,30 +123,65 @@ function CheckOutPage() {
     const data = {
       quantity: updateQuantity,
     };
-    Axios.put(`${requests.getCart}/${cartIndex}`, data, config).then(
-      (response) => {
-        getCart();
+
+    if (localStorage.getItem("ts-token")) {
+      Axios.put(`${requests.getCart}/${cartIndex}`, data, config).then(
+        (response) => {
+          getCart();
+        }
+      );
+    } else {
+      var cart = JSON.parse(localStorage.getItem("ts-cart"));
+
+      for (let i = 0; i < cart.length; i++) {
+        console.log(cartIndex, cart[i].cart_id);
+        if (cartIndex == cart[i].cart_id) {
+          cart[i].quantity = updateQuantity;
+        }
       }
-    );
+      cart = JSON.stringify(cart);
+      localStorage.setItem("ts-cart", cart);
+
+      window.location.reload();
+    }
   };
   const removeCart = (id) => {
-    Axios.delete(`${requests.getCart}/${id}`, config).then((response) => {
-      getCart();
-    });
+    if (localStorage.getItem("ts-token")) {
+      Axios.delete(`${requests.getCart}/${id}`, config).then((response) => {
+        getCart();
+      });
+    } else {
+      var cart = JSON.parse(localStorage.getItem("ts-cart"));
+      cart.splice(id - 1, 1);
+      cart = JSON.stringify(cart);
+      localStorage.setItem("ts-cart", cart);
+      window.location.reload();
+    }
   };
 
   const calculateTotal = () => {
     let subTotal = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var subAmount = cart[i].total_price.replace("AED", "");
-        const total = parseInt(subAmount);
-        subTotal = subTotal + total;
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = cart[i].total_price.replace("AED", "");
+          const total = parseInt(subAmount);
+          subTotal = subTotal + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = parseInt(cart[i].price) * parseInt(cart[i].quantity);
+          const total = parseInt(subAmount);
+          subTotal = subTotal + total;
+        }
       }
     }
 
@@ -154,16 +189,27 @@ function CheckOutPage() {
   };
   const calculateDiscount = () => {
     let discount = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var saving = cart[i].total_saving.replace("AED", "");
-        const total = parseInt(saving);
-        discount = discount + total;
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var saving = cart[i].total_saving.replace("AED", "");
+          const total = parseInt(saving);
+          discount = discount + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var total = parseInt(cart[i].discount) * parseInt(cart[i].quantity);
+
+          discount = discount + total;
+        }
       }
     }
 
@@ -172,17 +218,29 @@ function CheckOutPage() {
 
   const calculateGrandTotal = () => {
     let grandTotal = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var subAmount = cart[i].total_price.replace("AED", "");
-        const total = parseInt(subAmount);
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = cart[i].total_price.replace("AED", "");
+          const total = parseInt(subAmount);
 
-        grandTotal = grandTotal + total;
+          grandTotal = grandTotal + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var total =
+            parseInt(cart[i].total_price) * parseInt(cart[i].quantity);
+
+          grandTotal = grandTotal + total;
+        }
       }
     }
     grandTotal = grandTotal;
@@ -225,6 +283,12 @@ function CheckOutPage() {
 
   const onPlaceOrder = (e) => {
     e.preventDefault();
+
+    if (!localStorage.getItem("ts-token")) {
+      window.location.href = "/login";
+      return false;
+    }
+
     if (cartState.cartProduct.length == 0) {
       notifySucess("Your cart is empty");
       return false;
@@ -278,7 +342,8 @@ function CheckOutPage() {
               {cartState.cartProduct ? cartState.cartProduct.length : 0})
             </b>
           </div>
-          {cartState.cartProduct &&
+          {localStorage.getItem("ts-token") ? (
+            cartState.cartProduct &&
             cartState.cartProduct.length > 0 &&
             cartState.cartProduct.map((product, index) => {
               return (
@@ -305,7 +370,39 @@ function CheckOutPage() {
                   </div>
                 </div>
               );
-            })}
+            })
+          ) : localStorage.getItem("ts-cart") ? (
+            JSON.parse(localStorage.getItem("ts-cart")).map(
+              (product, index) => {
+                return (
+                  <div key={index} className="cart-product">
+                    <div className="inner-container">
+                      <div className="top">
+                        <span
+                          className="icon-close"
+                          onClick={removeCart.bind(this, product.index)}
+                        >
+                          <IoMdCloseCircle />
+                        </span>
+                      </div>
+                      <CartProduct
+                        removeProduct={removeProduct}
+                        removeCart={removeCart}
+                        cartIndex={product.cart_id}
+                        key={index}
+                        data={product}
+                        pakageContent={product.productDetails}
+                        quantity={product.quantity}
+                        updateQuantity={updateQuantity}
+                      />
+                    </div>
+                  </div>
+                );
+              }
+            )
+          ) : (
+            <div className="empty-message">Your cart is empty!</div>
+          )}
         </div>
 
         <div className="float-child-payment">

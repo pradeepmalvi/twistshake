@@ -18,6 +18,12 @@ import { FiUserPlus } from "react-icons/fi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const config = {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("ts-token")}`,
+  },
+};
+
 export default function Login() {
   const { appState, appStateDispatch } = useContext(AppContext);
 
@@ -87,9 +93,33 @@ export default function Login() {
           history.push("/");
         }
 
-        window.location.reload();
+        if (localStorage.getItem("ts-cart")) {
+          var counter = 0;
+          var cart = JSON.parse(localStorage.getItem("ts-cart"));
+          for (let i = 0; i < cart.length; i++) {
+            let data = {
+              cart_item: cart[i],
+            };
+            data.cart_item.user_id = res.data.user.id;
 
-        console.log(res.data);
+            counter = counter + 1;
+            if (localStorage.getItem("ts-token")) {
+              Axios.post(`${requests.addToCart}`, data, {
+                headers: {
+                  Authorization: `Bearer ${res.data.token}`,
+                },
+              }).then((response) => {
+                console.log(response);
+                console.log(counter, cart.length);
+                if (counter === cart.length) {
+                  window.location.reload();
+                }
+              });
+            }
+          }
+        }
+
+        // window.location.reload();
       })
       .catch((err) => {
         console.log(err.response);

@@ -7,6 +7,7 @@ import Counter from "../counter/Counter.component";
 import { Link } from "react-router-dom";
 import Axios from "../../axios/axios";
 import requests from "../../axios/requests";
+import { useHistory } from "react-router-dom";
 
 const config = {
   headers: {
@@ -26,6 +27,8 @@ export default function CartProduct({
   const [packageBox, setPackageBox] = useState("");
   const [productQuantity, setProductQuantity] = useState(quantity);
   const [showPakageContent, setShowPakageContent] = useState(false);
+  const history = useHistory();
+
   const onAddQuantity = (quantity) => {
     // setProductQuantity(quantity);
     updateQuantity(cartIndex, quantity);
@@ -68,12 +71,21 @@ export default function CartProduct({
             {data.package_content ? data.package_content : null}
           </div>
           <div className="product-counter">
-            <Counter
-              updateQuantity={updateQuantity}
-              quantity={quantity}
-              onAddQuantity={onAddQuantity}
-              onRemoveQuantity={onRemoveQuantity}
-            />
+            {localStorage.getItem("ts-token") ? (
+              <Counter
+                updateQuantity={updateQuantity}
+                quantity={quantity}
+                onAddQuantity={onAddQuantity}
+                onRemoveQuantity={onRemoveQuantity}
+              />
+            ) : history.location.pathname === "/checkout" ? (
+              <Counter
+                updateQuantity={updateQuantity}
+                quantity={quantity}
+                onAddQuantity={onAddQuantity}
+                onRemoveQuantity={onRemoveQuantity}
+              />
+            ) : null}
           </div>
           {data.type === "package" && (
             <div className="package-content">
@@ -113,7 +125,9 @@ export default function CartProduct({
           </span>
           <span className="latest">
             {/* {parseInt(data.total_price) * productQuantity} */}
-            {data.total_price}
+            {localStorage.getItem("ts-token")
+              ? data.total_price
+              : parseInt(data.total_price) * productQuantity}
           </span>
         </div>
       </div>

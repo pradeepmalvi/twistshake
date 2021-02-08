@@ -79,9 +79,17 @@ export default function ShopingCart() {
     );
   };
   const removeCart = (id) => {
-    Axios.delete(`${requests.getCart}/${id}`, config).then((response) => {
-      getCart();
-    });
+    if (localStorage.getItem("ts-token")) {
+      Axios.delete(`${requests.getCart}/${id}`, config).then((response) => {
+        getCart();
+      });
+    } else {
+      var cart = JSON.parse(localStorage.getItem("ts-cart"));
+      cart.splice(id - 1, 1);
+      cart = JSON.stringify(cart);
+      localStorage.setItem("ts-cart", cart);
+      window.location.reload();
+    }
   };
 
   const calculateTotal = () => {
@@ -176,33 +184,70 @@ export default function ShopingCart() {
             <div className="grouped">
               <div>
                 <div className="cart-products">
-                  {cartState.cartProduct && cartState.cartProduct.length > 0 ? (
-                    cartState.cartProduct.map((product, index) => {
-                      return (
-                        <div key={index} className="cart-product">
-                          <div className="inner-container">
-                            <div className="top">
-                              <span
-                                className="icon-close"
-                                onClick={removeCart.bind(this, product.cart_id)}
-                              >
-                                <IoMdCloseCircle />
-                              </span>
+                  {localStorage.getItem("ts-token") ? (
+                    cartState.cartProduct &&
+                    cartState.cartProduct.length > 0 ? (
+                      cartState.cartProduct.map((product, index) => {
+                        return (
+                          <div key={index} className="cart-product">
+                            <div className="inner-container">
+                              <div className="top">
+                                <span
+                                  className="icon-close"
+                                  onClick={removeCart.bind(
+                                    this,
+                                    product.cart_id
+                                  )}
+                                >
+                                  <IoMdCloseCircle />
+                                </span>
+                              </div>
+                              <CartProduct
+                                removeProduct={removeProduct}
+                                removeCart={removeCart}
+                                cartIndex={product.cart_id}
+                                key={index}
+                                data={product}
+                                pakageContent={product.productDetails}
+                                quantity={product.quantity}
+                                updateQuantity={updateQuantity}
+                              />
                             </div>
-                            <CartProduct
-                              removeProduct={removeProduct}
-                              removeCart={removeCart}
-                              cartIndex={product.cart_id}
-                              key={index}
-                              data={product}
-                              pakageContent={product.productDetails}
-                              quantity={product.quantity}
-                              updateQuantity={updateQuantity}
-                            />
                           </div>
-                        </div>
-                      );
-                    })
+                        );
+                      })
+                    ) : (
+                      <div className="empty-message">Your cart is empty!</div>
+                    )
+                  ) : localStorage.getItem("ts-cart") ? (
+                    JSON.parse(localStorage.getItem("ts-cart")).map(
+                      (product, index) => {
+                        return (
+                          <div key={index} className="cart-product">
+                            <div className="inner-container">
+                              <div className="top">
+                                <span
+                                  className="icon-close"
+                                  onClick={removeCart.bind(this, product.index)}
+                                >
+                                  <IoMdCloseCircle />
+                                </span>
+                              </div>
+                              <CartProduct
+                                removeProduct={removeProduct}
+                                removeCart={removeCart}
+                                cartIndex={product.index}
+                                key={index}
+                                data={product}
+                                pakageContent={product}
+                                quantity={product.quantity}
+                                updateQuantity={updateQuantity}
+                              />
+                            </div>
+                          </div>
+                        );
+                      }
+                    )
                   ) : (
                     <div className="empty-message">Your cart is empty!</div>
                   )}
