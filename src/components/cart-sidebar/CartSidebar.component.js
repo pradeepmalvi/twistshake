@@ -94,16 +94,27 @@ export default function ShopingCart() {
 
   const calculateTotal = () => {
     let subTotal = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var subAmount = cart[i].total_price.replace("AED", "");
-        const total = parseInt(subAmount);
-        subTotal = subTotal + total;
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = cart[i].total_price.replace("AED", "");
+          const total = parseInt(subAmount);
+          subTotal = subTotal + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = parseInt(cart[i].price) * parseInt(cart[i].quantity);
+          const total = parseInt(subAmount);
+          subTotal = subTotal + total;
+        }
       }
     }
 
@@ -111,16 +122,27 @@ export default function ShopingCart() {
   };
   const calculateDiscount = () => {
     let discount = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var saving = cart[i].total_saving.replace("AED", "");
-        const total = parseInt(saving);
-        discount = discount + total;
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var saving = cart[i].total_saving.replace("AED", "");
+          const total = parseInt(saving);
+          discount = discount + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var total = parseInt(cart[i].discount) * parseInt(cart[i].quantity);
+
+          discount = discount + total;
+        }
       }
     }
 
@@ -129,19 +151,37 @@ export default function ShopingCart() {
 
   const calculateGrandTotal = () => {
     let grandTotal = 0;
-    if (
-      cartState &&
-      cartState.cartProduct &&
-      cartState.cartProduct.length > 0
-    ) {
-      var cart = cartState.cartProduct;
-      for (let i = 0; i < cart.length; i++) {
-        var subAmount = cart[i].total_price.replace("AED", "");
-        const total = parseInt(subAmount);
-        grandTotal = grandTotal + total;
+    if (localStorage.getItem("ts-token")) {
+      if (
+        cartState &&
+        cartState.cartProduct &&
+        cartState.cartProduct.length > 0
+      ) {
+        var cart = cartState.cartProduct;
+        for (let i = 0; i < cart.length; i++) {
+          var subAmount = cart[i].total_price.replace("AED", "");
+          const total = parseInt(subAmount);
+
+          grandTotal = grandTotal + total;
+        }
+      }
+    } else {
+      if (localStorage.getItem("ts-cart")) {
+        var cart = JSON.parse(localStorage.getItem("ts-cart"));
+        for (let i = 0; i < cart.length; i++) {
+          var total =
+            parseInt(cart[i].total_price) * parseInt(cart[i].quantity);
+
+          grandTotal = grandTotal + total;
+        }
       }
     }
     grandTotal = grandTotal;
+
+    // if (shipping_charge) {
+    //   grandTotal = grandTotal + parseInt(shipping_charge);
+    // }
+
     return grandTotal;
   };
 
@@ -255,9 +295,11 @@ export default function ShopingCart() {
               </div>
             </div>
           </div>
-          {cartState &&
-          cartState.cartProduct &&
-          cartState.cartProduct.length > 0 ? (
+          {(JSON.parse(localStorage.getItem("ts-cart")) &&
+            JSON.parse(localStorage.getItem("ts-cart")).length > 0) ||
+          (cartState &&
+            cartState.cartProduct &&
+            cartState.cartProduct.length > 0) ? (
             <div className="bottom-area">
               <div className="seprator"></div>
               <div className="inner-container">
