@@ -52,9 +52,10 @@ export default function Footer() {
         };
         Axios.post(`${requests.newsletter}`, data, config).then((response) => {
           if (response.data.success) {
-            toast("Thank you for subscribe!", {
+            toast("Thanks for your signing up!", {
               type: toast.TYPE.SUCCESS,
               autoClose: 10000,
+              className: "toastBgDark",
             });
           }
         });

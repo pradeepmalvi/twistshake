@@ -98,7 +98,6 @@ export default function MyAccounPage() {
               </>
             )}
           />
-
           <Route
             path="/myAccount/order-details/:orderId"
             render={() => (
@@ -107,7 +106,6 @@ export default function MyAccounPage() {
               </>
             )}
           />
-
           <Route
             path="/myAccount/edit-account"
             render={() => (
@@ -117,7 +115,6 @@ export default function MyAccounPage() {
               </>
             )}
           />
-
           <Route
             path="/myAccount/edit-address"
             render={() => (
@@ -127,7 +124,6 @@ export default function MyAccounPage() {
               </>
             )}
           />
-
           <Route
             path="/myAccount/user-info"
             render={() => (

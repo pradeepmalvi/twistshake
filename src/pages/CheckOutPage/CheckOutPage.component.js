@@ -455,7 +455,9 @@ function CheckOutPage() {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Choose your Emirate</option>
+                      <option selected value="">
+                        Choose your Emirate
+                      </option>
                       {cities &&
                         cities.length > 0 &&
                         cities.map((city) => (
@@ -539,10 +541,9 @@ function CheckOutPage() {
                   checked={true}
                 />
                 <label htmlFor="cash-on-delivery">
-                  {" "}
                   <span>
                     <BiMoney />
-                  </span>{" "}
+                  </span>
                   Cash on Delivery
                 </label>
               </div>

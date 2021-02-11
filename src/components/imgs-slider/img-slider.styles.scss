@@ -9,6 +9,10 @@
   .slick-slider {
     .item {
       cursor: pointer;
+
+      img {
+        object-fit: contain;
+      }
     }
 
     .slick-prev {
