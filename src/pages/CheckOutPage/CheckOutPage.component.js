@@ -29,6 +29,7 @@ function CheckOutPage() {
   const [alternate_phone, setalternate_phone] = useState("");
   const [city, setCity] = useState([]);
   const [shipping_charge, setshipping_charge] = useState("");
+  const [charge, setcharge] = useState("");
   const [cities, setCities] = useState([]);
   const { cartState, cartStateDispatch } = useContext(AppContext);
   const [cart, setCart] = useState([]);
@@ -95,7 +96,6 @@ function CheckOutPage() {
         var address = response.data.user;
         setaddress(address.address);
         setaddress_type(address.address2);
-        setshipping_charge(address.city);
         setphone(address.phone);
         // setAddressId(address.id);
 
@@ -104,7 +104,9 @@ function CheckOutPage() {
 
           for (let i = 0; i < city.length; i++) {
             if (address.city === city[i].shipping_state) {
-              setshipping_charge(city[i].shipping_charge);
+              var data = `{"city":"${city[i].shipping_state}","charge":${city[i].shipping_charge}}`;
+              setshipping_charge(data);
+              setcharge(city[i].shipping_charge);
             }
           }
         });
@@ -245,8 +247,8 @@ function CheckOutPage() {
     }
     grandTotal = grandTotal;
 
-    if (shipping_charge) {
-      grandTotal = grandTotal + parseInt(shipping_charge);
+    if (charge) {
+      grandTotal = grandTotal + parseInt(charge);
     }
 
     return grandTotal;
@@ -271,7 +273,9 @@ function CheckOutPage() {
       setalternate_phone(text);
     }
     if (e.target.id.toLowerCase() === "shipping_charge".toLowerCase()) {
+      console.log();
       setshipping_charge(e.target.value);
+      setcharge(JSON.parse(e.target.value).charge);
       console.log(e.target.innerHTML);
 
       var select_id = document.getElementById("shipping_charge");
@@ -302,7 +306,7 @@ function CheckOutPage() {
 
     let data = {
       user_id: localStorage.getItem("ts-userid"),
-      shipping_charge: shipping_charge,
+      shipping_charge: charge,
       cart_id: cart_id,
       totalPrice: calculateTotal(),
       payment: { mode: "cod", status: "unpaid" },
@@ -313,9 +317,9 @@ function CheckOutPage() {
         alternate_phone: alternate_phone,
         address: address,
         address_type: address_type,
-        city: city,
+        city: JSON.parse(shipping_charge).city,
         country: "UAE",
-        // state: state,
+        state: JSON.parse(shipping_charge).city,
       },
     };
 
@@ -461,7 +465,9 @@ function CheckOutPage() {
                       {cities &&
                         cities.length > 0 &&
                         cities.map((city) => (
-                          <option value={city.shipping_charge}>
+                          <option
+                            value={`{"city":"${city.shipping_state}","charge":${city.shipping_charge}}`}
+                          >
                             {city.shipping_state}
                           </option>
                         ))}
@@ -564,7 +570,7 @@ function CheckOutPage() {
                   <li className="list-item">
                     <span className="key">Delivery</span>
                     <span className="value">
-                      {calculateTotal() !== 0 ? shipping_charge : 0} AED
+                      {calculateTotal() !== 0 ? charge : 0} AED
                     </span>
                   </li>
                   <li className="list-item">
